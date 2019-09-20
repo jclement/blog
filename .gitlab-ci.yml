@@ -32,6 +32,6 @@ deploy:
     name: production
     url: jclement.ca
   script:
-    - rsync -avz --delete -e "ssh" --progress public/*. deploy_jclement@caddy.home.adipose.net:/var/www/test3.jclement.ca
+    - rsync -avz --delete -e "ssh" --progress public/ deploy_jclement@caddy.home.adipose.net:/var/www/test3.jclement.ca
   only:
     - master
