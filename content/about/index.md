@@ -1,20 +1,16 @@
 ---
 title: About me
-subtitle: Why you'd want to hang out with me
 comments: false
 ---
 
 {{< gallery dir="/gallery/me" caption-effect="fade" />}}
 
-My name is The Dude. I have the following qualities:
+My name is Jeff Clement.  
 
-- I rock a great beard
-- I'm extremely loyal to my friends
-- I like bowling
-
-That rug really tied the room together.
-
-### my history
+- I ride bikes and unicycles
+- I make things, usually out of wood
+- I make software
+- I love computer security and privacy
 
 ### Contact Information
 
