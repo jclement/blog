@@ -21,7 +21,7 @@ Ideologically, I really like Wireguard.  In stark contrast to the other VPN tech
 One minor annoyance is that Wireguard doesn’t support bridged connections.  All of my Wireguard connections are assigned IPs within a separate address space (10.0.0.0/24, in my case) and rely on NAT to access resources on my LAN.  This works fine but I would have preferred my remote devices are bridged directly onto my LAN.
 
 
-## Installation
+# Installation
 
 To get up and running, I installed Wireguard on a virtual machine within my LAN.  The machine image is based on Ubuntu 18.04 and the installation was fairly simple:
 
@@ -30,7 +30,7 @@ $ sudo add-apt-repository ppa:wireguard/wireguard
 $ sudo apt install wireguard
 ```
 
-## Service Configuration
+# Service Configuration
 
 Once installed, the next step is to configure the server.  
 
@@ -70,7 +70,7 @@ $ ufw allow 19580/udp
 
 One last step is to setup a port forwarding rule so that Wireguard traffic hitting the public side of my USG is forwarded to this machine appropriately.
 
-## Adding Clients
+# Adding Clients
 
 Each client needs a unique configuration and, similar to the server, the first step is to create the key pair.
 
@@ -112,7 +112,7 @@ To make my life easier, I use the `qrencode` package to generate an ASCII QR cod
 qrencode -t ASCII < client
 ```
 
-## Enable Wireguard
+# Enable Wireguard
 
 Start the Wireguard server with the `wg-quick` command:
 
@@ -126,7 +126,7 @@ Restart it with something like the following.
 wg-quick down wg0 && wg-quick up wg0
 ```
 
-## Testing it out
+# Testing it out
 
 Now that the Wireguard service is up-and-running, and the configuration loaded into the Wireguard application on the phone, we can start the connection from the phone.
 
