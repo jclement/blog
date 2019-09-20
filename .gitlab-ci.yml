@@ -3,6 +3,7 @@ stages:
   - deploy
   
 build:
+  stage:  build
   image: registry.gitlab.com/pages/hugo:latest
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
@@ -16,7 +17,7 @@ build:
   - master
 
 deploy:
-  type: deploy
+  stage:  deploy
   image: alpine:latest
   before_script:
     - apk update && apk add openssh-client bash rsync
