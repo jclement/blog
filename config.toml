@@ -1,4 +1,4 @@
-baseurl = "https://jclement.ca"
+baseurl = "https://test3.jclement.ca"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
