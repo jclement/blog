@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/jsc
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jclement.ca
+  * I am jsc (https://keybase.io/jsc) on keybase.
+  * I have a public key ASBMClel-k01_-4pveeL7Cn1skl83b1DdzOEe3tfrYuCWAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101307a7d2cf4a49beb180fb19892394fb8d3cc14c5ad81b08a501bad6b5362fdea0a",
+      "host": "keybase.io",
+      "kid": "01204c0a57a5fa4d35ffee29bde78bec29f5b2497cddbd437733847b7b5fad8b82580a",
+      "uid": "52e387e0223a2c0c439eae813f1d7700",
+      "username": "jsc"
+    },
+    "merkle_root": {
+      "ctime": 1558154100,
+      "hash": "ab9ff091ab8b9ebdbfbbe5cd7d9e191d718e426da8fa423e429394c274c8d43e85171a7f65a54d23253aab75dcef11864d19932f7c9b4c2271163b9f902d49f1",
+      "hash_meta": "ebc53cd15737d0980fde4e4c462d195065f62f96366fab424bebc6f8faad734a",
+      "seqno": 5397308
+    },
+    "service": {
+      "entropy": "hjRTFxD8cpCcOK7tPl2QuKIU",
+      "hostname": "jclement.ca",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.0.0"
+  },
+  "ctime": 1558154135,
+  "expire_in": 504576000,
+  "prev": "a16db8539c562829eab19a566b85741a145fbd6f718e98384629e0c1861df4f1",
+  "seqno": 123,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgTApXpfpNNf/uKb3ni+wp9bJJfN29Q3czhHt7X62LglgKp3BheWxvYWTESpcCe8QgoW24U5xWKCnqsZpWa4V0GhRfvW9xjpg4RingwYYd9PHEIAmkCOvk4rKaXwZRCzEvw8fvGTdrwjn3cs0KGoVaQZsKAgHCo3NpZ8RAMdearq0HkfK4eRzvnHbFr7JJ2shdF8OwMe5GcixFRf9PvUmBApajuxh+MADbOH8u/OrFy/TnXWck6Fo8TaaLD6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEINEMSP8h9MVMEyfKlCRGNcHOIaHWsTNQwhXoulcxc39no3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jsc
+
+==================================================================

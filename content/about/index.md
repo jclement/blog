@@ -1,8 +1,13 @@
 ---
-title: About me!
+title: About me
 subtitle: Why you'd want to hang out with me
 comments: false
 ---
+
+{{< gallery caption-effect="fade" >}}
+  {{< figure link="uni1.jpg" >}}
+  {{< figure link="uni2.jpg" caption="Sphere" >}}
+{{< /gallery >}}
 
 My name is The Dude. I have the following qualities:
 
@@ -14,13 +19,43 @@ That rug really tied the room together.
 
 ### my history
 
-To be honest, I'm having some trouble remembering right now, so why don't you
-just watch [my movie](https://en.wikipedia.org/wiki/The_Big_Lebowski) and it
-will answer **all** your questions.
+### Contact Information
 
+<table width="100%">
+<tbody>
 
-{{< gallery caption-effect="fade" >}}
-  {{< figure thumb="-thumb" link="/img/hexagon.jpg" >}}
-  {{< figure thumb="-thumb" link="/img/sphere.jpg" caption="Sphere" >}}
-  {{< figure thumb="-thumb" link="/img/triangle.jpg" caption="Triangle" alt="This is a long comment about a triangle" >}}
-{{< /gallery >}}
+<tr>
+<th>E-Mail:</th>
+<td><a href="#" class="mail-link"><span class="mail-addr">jsc at nddn dot net</span></a></td>
+</tr>
+
+<tr>
+<th>GnuPG:</th>
+<td><a href="https://keybase.io/jsc/key.asc">0x76B1A823FCC65FA3</a><br />
+E8FF 07F8 CC8B 955B FF10  EC2D 76B1 A823 FCC6 5FA3<br />
+    <a href="/gpg/transition-20181009.txt">transition statement 2018-10-09</a><br />
+    <a href="/gpg/transition-20150323.txt">transition statement 2015-03-23</a></td>
+</tr>
+
+<tr>
+<th>LinkedIn:</th>
+<td><a href="http://www.linkedin.com/profile/view?id=6394933">Jeff Clement</a></td>
+</tr>
+
+<tr>
+<th>Github:</th>
+<td><a href="https://github.com/jclement">jclement</a></td>
+</tr>
+
+<tr>
+<th>Twitter:</th>
+<td><a href="https://twitter.com/jsc_yyc">@jsc_yyc</a></td>
+</tr>
+    
+<tr>
+<th>Keybase:</th>
+<td><a href="https://keybase.io/jsc">jsc</a></td>
+</tr>
+
+</tbody>
+</table>

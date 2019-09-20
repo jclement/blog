@@ -3,6 +3,7 @@ title: Code Sample
 subtitle: Using Hugo or Pygments
 date: 2016-03-08
 tags: ["example", "code"]
+draft: true
 ---
 
 The following are two code samples using syntax highlighting.
@@ -30,6 +31,12 @@ The following is a code sample using the "highlight" shortcode provided in Hugo.
     alert("Sum = " + sum)  // "+" means combine into a string
 {{</ highlight >}}
 
+
+{{< gallery caption-effect="fade" >}}
+  {{< figure thumb="-thumb" link="/img/hexagon.jpg" >}}
+  {{< figure thumb="-thumb" link="/img/sphere.jpg" caption="Sphere" >}}
+  {{< figure thumb="-thumb" link="/img/triangle.jpg" caption="Triangle" alt="This is a long comment about a triangle" >}}
+{{< /gallery >}}
 
 And here is the same code with line numbers:
 

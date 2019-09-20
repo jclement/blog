@@ -2,19 +2,22 @@ baseurl = "https://test3.jclement.ca"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
-title = "jclement.ca"
+title = "Jeff Clement"
 canonifyurls  = true
 
 DefaultContentLanguage = "en"
 theme = "jeff"
 metaDataFormat = "yaml"
-pygmentsUseClasses = true
-pygmentCodeFences = true
 disqusShortname = "jclement"
 #googleAnalytics = "XXX"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = false
 
 [Params]
-  subtitle = "Code, Wood and Unicycles"
+  subtitle = "Code, Wood, and Unicycles"
+  readingTime = true
+  hideAuthor = true
   logo = "img/avatar-icon.png"
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
