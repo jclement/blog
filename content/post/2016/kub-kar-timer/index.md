@@ -4,7 +4,6 @@ date: 2016-02-14
 template: article.jade
 comments: true
 toc: true
-tocLevel: 2
 ---
 
 My boys are in Boy Scouts and the annual Kub Kar races are a fun part of the program.   Our group has a couple older wooden tracks and I wanted to add a timer mechanism to them that would time and rank each car for each race.

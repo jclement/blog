@@ -1,4 +1,4 @@
-baseurl = "https://test3.jclement.ca"
+baseurl = "https://jclement.ca"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
@@ -86,10 +86,10 @@ pygmentsCodefencesGuessSyntax = false
 #     url = "post/2016-03-08-code-sample"
 #     weight = 3
 
-[[menu.main]]
-    identifier = "projects"
-    name = "Projects"
-    weight = 2
+#[[menu.main]]
+#    identifier = "projects"
+#    name = "Projects"
+#    weight = 2
 
 [[menu.main]]
     identifier = "code"
