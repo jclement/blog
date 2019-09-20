@@ -6,7 +6,7 @@ title = "jclement.ca"
 canonifyurls  = true
 
 DefaultContentLanguage = "en"
-theme = "Lanyon"
+theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentCodeFences = true
