@@ -62,10 +62,6 @@ pygmentsCodefencesGuessSyntax = false
     url = ""
     weight = 1
 
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 3
 
 # [[menu.main]]
 #     identifier = "samples"
@@ -91,6 +87,33 @@ pygmentsCodefencesGuessSyntax = false
 #     weight = 3
 
 [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    weight = 2
+
+[[menu.main]]
+    identifier = "code"
+    name = "Code"
+    weight = 3
+
+[[menu.main]]
+    parent = "code"
+    name = "Gitlab"
+    url = "https://gitlab.adipose.net/explore/projects"
+    weight = 1
+
+[[menu.main]]
+    parent = "code"
+    name = "Github"
+    url = "https://github.com/jclement"
+    weight = 2
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 80
+
+[[menu.main]]
     name = "Tags"
     url = "tags"
-    weight = 3
+    weight = 90 

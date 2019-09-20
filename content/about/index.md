@@ -4,10 +4,7 @@ subtitle: Why you'd want to hang out with me
 comments: false
 ---
 
-{{< gallery caption-effect="fade" >}}
-  {{< figure link="uni1.jpg" >}}
-  {{< figure link="uni2.jpg" caption="Sphere" >}}
-{{< /gallery >}}
+{{< gallery dir="/gallery/me" caption-effect="fade" />}}
 
 My name is The Dude. I have the following qualities:
 
@@ -33,8 +30,8 @@ That rug really tied the room together.
 <th>GnuPG:</th>
 <td><a href="https://keybase.io/jsc/key.asc">0x76B1A823FCC65FA3</a><br />
 E8FF 07F8 CC8B 955B FF10  EC2D 76B1 A823 FCC6 5FA3<br />
-    <a href="/gpg/transition-20181009.txt">transition statement 2018-10-09</a><br />
-    <a href="/gpg/transition-20150323.txt">transition statement 2015-03-23</a></td>
+    <a href="/gpg/transition_20181009.txt">transition statement 2018-10-09</a><br />
+    <a href="/gpg/transition_20150323.txt">transition statement 2015-03-23</a></td>
 </tr>
 
 <tr>
