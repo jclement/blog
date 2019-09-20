@@ -8,7 +8,7 @@ canonifyurls  = true
 DefaultContentLanguage = "en"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
-pygmentsUseClasses = true
+pygmentsUseClasses = false
 pygmentCodeFences = true
 #disqusShortname = "XXX"
 #googleAnalytics = "XXX"
@@ -21,8 +21,6 @@ pygmentCodeFences = true
   commit = false
   rss = true
   comments = false
-  pygmentsCodeFences = true
-  pygmentsUseClasses = true
 
 #[[Params.bigimg]]
 #  src = "img/triangle.jpg"
