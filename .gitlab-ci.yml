@@ -1,6 +1,21 @@
 # All available Hugo versions are listed here: https://gitlab.com/pages/hugo/container_registry
 image: registry.gitlab.com/pages/hugo:latest
 
+stages:
+  - test
+  - build
+  - deploy
+  
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - 'which rsync || ( apt-get update -y && apt-get install rsync -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
@@ -10,7 +25,7 @@ test:
   except:
   - master
 
-pages:
+build:
   script:
   - hugo
   artifacts:
@@ -18,3 +33,14 @@ pages:
     - public
   only:
   - master
+
+deploy:
+  type: deploy
+  environment:
+    name: production
+    url: jclement.ca
+  script:
+    - ssh root@example.com "cd var/www/ && git checkout master && git pull origin master && exit"
+    - rsync -avz -e "ssh" --progress public/*. caddy.home.adipose.net:/home/jsc/blog
+  only:
+    - master
