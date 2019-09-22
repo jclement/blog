@@ -112,6 +112,10 @@ At this point, we no longer need Internet access so unplug the cable or disconne
 DO NOT **PROCEED** UNTIL YOU HAVE DISCONNECTED YOUR MACHINE FROM THE INTERNET. 
 {{%/ warning %}}
 
+{{< warning >}}
+DO NOT **PROCEED** UNTIL YOU HAVE DISCONNECTED YOUR MACHINE FROM THE INTERNET. 
+{{</ warning >}}
+
 Here is a sample set of keys that I’m generating. The master key is  reserved for key signing and certifying the sub-keys. There are distinct  sub-keys for signing, encryption and authentication (SSH).  Each of these separate sub-keys will be loaded into the matching slot on the YubiKey OpenPGP module.
 
 Here is a sample of the keys we are generating:
