@@ -22,7 +22,6 @@ deploy:
   before_script:
     - apk update && apk add openssh-client bash rsync
     - eval $(ssh-agent -s)
-    - echo "192.168.30.11 caddy.home.adipose.net" >> /etc/hosts
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
@@ -32,6 +31,6 @@ deploy:
     name: production
     url: jclement.ca
   script:
-    - rsync -hrvz --delete --exclude=_ -e "ssh" --progress public/ deploy_jclement@caddy.home.adipose.net:/var/www/jclement.ca
+    - rsync -hrvz --delete --exclude=_ -e "ssh" --progress public/ deploy_zeos@box.zeos.ca:/home/user-data/www/zeos.ca
   only:
     - master

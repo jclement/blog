@@ -1,4 +1,4 @@
-baseurl = "https://jclement.ca"
+baseurl = "https://zeos.ca"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
@@ -8,7 +8,7 @@ canonifyurls  = true
 DefaultContentLanguage = "en"
 theme = "jeff"
 metaDataFormat = "yaml"
-disqusShortname = "jclement"
+disqusShortname = "zeos"
 #googleAnalytics = "XXX"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
@@ -37,7 +37,7 @@ pygmentsCodefencesGuessSyntax = false
 
 [Author]
   name = "Jeff Clement"
-  email = "jsc+website@nddn.net"
+  email = "jeff+web@zeos.ca"
   #facebook = "username"
   #googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
   #gitlab = "username"
