@@ -24,6 +24,7 @@ pygmentsCodefencesGuessSyntax = false
   commit = false
   selfHosted = true
   rss = true
+  smartypants = false
   comments = true
   gcse = "002888195400749182309:cakccbp7nyf"
 
