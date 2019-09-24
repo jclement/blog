@@ -3,6 +3,10 @@
     width: 100%
 }
 
+.credits {
+  font-size: 8pt;
+}
+
 .table-of-contents {
     background: #f0f0f0;
     padding: 10px;
