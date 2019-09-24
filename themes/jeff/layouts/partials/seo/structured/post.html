@@ -8,7 +8,7 @@
     "@type": "WebPage",
     "@id": "{{ .Permalink }}"
   },
-  "description" : "{{ if .Description }}{{ .Description | plainify }}{{ else }}{{if .IsPage}}{{ .Summary | plainify  }}{{ end }}{{ end }}",
+  "description" : {{ if .Description }}{{ .Description | plainify }}{{ else }}{{if .IsPage}}{{ .Summary | plainify  }}{{ end }}{{ end }},
   "inLanguage" : "{{ .Lang }}",
   {{ if .Params.author -}}
     "author": {
