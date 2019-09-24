@@ -14,6 +14,9 @@ pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = false
 
+[BlackFriday]
+  smartypants = false
+
 [Params]
   subtitle = "Code, Wood, and Unicycles"
   readingTime = true
@@ -24,7 +27,6 @@ pygmentsCodefencesGuessSyntax = false
   commit = false
   selfHosted = true
   rss = true
-  smartypants = false
   comments = true
   gcse = "002888195400749182309:cakccbp7nyf"
 
