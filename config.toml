@@ -22,8 +22,10 @@ pygmentsCodefencesGuessSyntax = false
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
   commit = false
+  selfHosted = true
   rss = true
   comments = true
+  gcse = true
 
 [[Params.bigimg]]
   src = "img/triangle.jpg"
@@ -40,7 +42,7 @@ pygmentsCodefencesGuessSyntax = false
   email = "jeff+web@zeos.ca"
   #facebook = "username"
   #googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
-  #gitlab = "username"
+  gitlab = "username"
   github = "jclement"
   twitter = "jsc_yyc"
   #reddit = "username"
