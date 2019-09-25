@@ -24,11 +24,7 @@ My name is Jeff Clement.
 
 <tr>
 <th>Wire:</th>
-<td>@jclement<br />
-<div style="font-size: 7pt">
-iPhone // da5837f948049573 // ca f7 de c1 2f e1 44 e3 0a 6d c1 e0 f8 19 88 01 22 52 7b bb ef d3 64 b7 74 bb 1a 60 5a 5c df 00
-</div>
-</td>
+<td>@jfry</td>
 </tr>
 
 <tr>
