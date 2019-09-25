@@ -23,6 +23,20 @@ My name is Jeff Clement.
 </tr>
 
 <tr>
+<th>Wire:</th>
+<td>@jclement<br />
+<font size="8">
+iPhone // da5837f948049573 // ca f7 de c1 2f e1 44 e3 0a 6d c1 e0 f8 19 88 01 22 52 7b bb ef d3 64 b7 74 bb 1a 60 5a 5c df 00
+</font>
+</td>
+</tr>
+
+<tr>
+<th>Threema:</th>
+<td><a href="threema.png">TUKDSKM6 (fingerprint: cb8a1e3e2ea4e8d9905d44f049efb36a)</td>
+</tr>
+
+<tr>
 <th>GnuPG:</th>
 <td><a href="https://keybase.io/jsc/key.asc">0x76B1A823FCC65FA3</a><br />
 E8FF 07F8 CC8B 955B FF10  EC2D 76B1 A823 FCC6 5FA3<br />
