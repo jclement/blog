@@ -31,6 +31,6 @@ deploy:
     name: production
     url: jclement.ca
   script:
-    - rsync -hrvz --delete --exclude=_ -e "ssh" --progress public/ deploy_zeos@box.zeos.ca:/home/user-data/www/zeos.ca
+    - rsync -hrvz --delete --exclude=_ -e "ssh" --progress public/ deploy_zeos@wilbur.zeos.ca:/var/www/zeos.ca
   only:
     - master
