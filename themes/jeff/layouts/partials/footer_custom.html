@@ -1,4 +1,10 @@
-<!--
-If you want to include any custom html just before </body>, put it in /layouts/partials/footer_custom.html
-Do not put anything in this file - it's only here so that hugo won't throw an error if /layouts/partials/footer_custom.html doesn't exist.
--->
+<script>
+    $(function() {
+        $(".mail-link").each(function(_, el) {
+            var addr = $(el).find(".mail-addr").text();
+            addr = addr.replace(" at ","@").replace(" dot ", ".");
+            $(el).find(".mail-addr").text(addr);
+            $(el).attr("href", "mailto:" + addr);
+        });
+    });
+</script>

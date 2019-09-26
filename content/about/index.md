@@ -19,7 +19,7 @@ My name is Jeff Clement.
 
 <tr>
 <th>E-Mail:</th>
-<td><a href="#" class="mail-link"><span class="mail-addr">jsc at nddn dot net</span></a></td>
+<td><a href="#" class="mail-link"><span class="mail-addr">jeff at zeos dot ca</span></a></td>
 </tr>
 
 <tr>
