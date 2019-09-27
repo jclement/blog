@@ -153,9 +153,9 @@ It'll look something like this:
 -----END OPENSSH PRIVATE KEY-----
 ```
 
-{{% danger %}}
+{{% warning %}}
 The private key `~/deploy_zeos` needs to be protected.  Anyone with that key can login to the `deploy_zeos` user on the webserver.  Once Gitlab is setup (below), this file should be deleted from the webserver.
-{{% /danger %}}
+{{% /warning %}}
 
 # Setting up Gitlab CI/CD
 

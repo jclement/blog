@@ -108,9 +108,9 @@ At this point, we no longer need Internet access so unplug the cable or disconne
 
 ## Generating GPG Keys
 
-{{% danger %}}
+{{% warning %}}
 Do not proceed until you have disconnected your machine from the Internet.
-{{% /danger %}}
+{{% /warning %}}
 
 Here is a sample set of keys that I’m generating. The master key is  reserved for key signing and certifying the sub-keys. There are distinct  sub-keys for signing, encryption and authentication (SSH).  Each of these separate sub-keys will be loaded into the matching slot on the YubiKey OpenPGP module.
 
