@@ -29,7 +29,7 @@ deploy:
     - chmod 644 ~/.ssh/known_hosts
   environment:
     name: production
-    url: jclement.ca
+    url: zeos.ca
   script:
     - rsync -hrvz --delete --exclude=_ -e "ssh" --progress public/ deploy_zeos@wilbur.zeos.ca:/var/www/zeos.ca
   only:
