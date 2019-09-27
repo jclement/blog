@@ -24,7 +24,7 @@ My name is Jeff Clement.
 
 <tr>
 <th>Wire:</th>
-<td>@jfry</td>
+<td>@jfry (<a href="https://jsc.keybase.pub/wire.txt">fingerprints</a>)</td>
 </tr>
 
 <tr>
