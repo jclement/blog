@@ -17,7 +17,7 @@ I keep coming back to static site generation for several reasons:
  - **Server footprint** - It's easy to host static files.  They can be easily deployed via Amazon S3, Digital Ocean Spaces, or any random web server technology.  Static sites are trivial to scale.  Static sites have a tighter security footprint (no giant PHP process handling requests).  Static sites are faster (page generation done when content is added, not when it's viewed).
  - **Longevity** -  I like that I can zip up the contents of my website and store it somewhere and be pretty sure I'll be able to read it in 15 years.
 
-The primary downside of a static blog is that you are stuck using tools like Disqus for comments (if you want those), which means that some 3rd party is capturing information about my visitors.  
+<strike>The primary downside of a static blog is that you are stuck using tools like Disqus for comments (if you want those), which means that some 3rd party is capturing information about my visitors. </strike> I've added a bonus section below that details adding client-side search to the website so we can avoid passing visitor information to Google.
 
 Another major annoyance for me has been deploying the static sites to production facing servers.  This post is all about automating that.
 
@@ -226,5 +226,315 @@ Once this is checked in, new commits to the blog repository will automatically t
 You can see build history / monitor the pipelines under the `CI/CD > Pipelines` menu in the repository.  It'll show information about each build.  If the build fails, clicking on the failed step should allow you to see the log and troubleshoot the whole thing.
 
 ![Pipelines](pipelines.png)
+
+# Searching (bonus)
+
+![Search Animation](search.gif)
+
+Rather than complicating my deployment and adding some sort of server-side searching, or outsourcing search to something like Google, I've added client-side searching using [lunr](https://lunrjs.com/).  Adding client-side searching to a Hugo site, and adding that to the build process is relatively easy.
+
+The following is largely based on [this gist](https://gist.github.com/sebz/efddfc8fdcb6b480f567).
+
+## Generating an Index
+
+For development and testing, you'll need NodeJS installed, and the following packages
+```
+npm install -g grunt
+# in your website root
+npm install grunt yamljs string
+```
+
+The following `Gruntfile.js` handles the building of an index by processing all markdown and HTML files and creating JSON index in `public/lunr.json`.
+
+```js
+var yaml = require("yamljs");
+var S = require("string");
+
+var CONTENT_PATH_PREFIX = "content";
+
+module.exports = function(grunt) {
+
+    grunt.registerTask("lunr-index", function() {
+
+        grunt.log.writeln("Build pages index");
+
+        var indexPages = function() {
+            var pagesIndex = [];
+            grunt.file.recurse(CONTENT_PATH_PREFIX, function(abspath, rootdir, subdir, filename) {
+                grunt.verbose.writeln("Parse file:",abspath);
+                var processedFile = processFile(abspath, filename);
+                if (processedFile) {
+                    pagesIndex.push(processedFile);
+                }
+            });
+
+            return pagesIndex;
+        };
+
+        var processFile = function(abspath, filename) {
+            var pageIndex;
+
+            if (S(filename).endsWith(".html")) {
+                pageIndex = processHTMLFile(abspath, filename);
+            } else if (S(filename).endsWith(".md")) {
+                pageIndex = processMDFile(abspath, filename);
+            }
+
+            return pageIndex;
+        };
+
+        var processHTMLFile = function(abspath, filename) {
+            var content = grunt.file.read(abspath);
+            var pageName = S(filename).chompRight(".html").s;
+            var href = S(abspath)
+                .chompLeft(CONTENT_PATH_PREFIX).s;
+            return {
+                title: pageName,
+                href: href,
+                content: S(content).trim().stripTags().stripPunctuation().s
+            };
+        };
+
+        var processMDFile = function(abspath, filename) {
+            var content = grunt.file.read(abspath);
+            var pageIndex;
+            // First separate the Front Matter from the content and parse it
+            content = content.split("---");
+            var frontMatter;
+            try {
+                frontMatter = yaml.parse(content[1].trim());
+            } catch (e) {
+                grunt.log.writeln(filename + " - " + e.message);
+                return;
+            }
+
+            var href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(".md").s;
+            // href for index.md files stops at the folder name
+            if (filename === "index.md") {
+                href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(filename).s;
+            }
+
+            // Build Lunr index for this page
+            pageIndex = {
+                title: frontMatter.title,
+                tags: frontMatter.tags,
+                href: href,
+                content: S(content[2]).trim().stripTags().stripPunctuation().s
+            };
+
+            return pageIndex;
+        };
+
+        grunt.file.write("public/lunr.json", JSON.stringify(indexPages()));
+        grunt.log.ok("Index built");
+    });
+};
+```
+
+The lunr index build can be run manually with the following in your website root:
+
+```
+grunt lunr-index
+```
+
+This will create `public/lunr.json` which contains the text content from all the website content:
+
+```json
+[{"title":"About me","href":"/about/","content":" My name is Jeff Clement I ride bikes and unicycles I make things usual
+ly out of wood I make software I love computer security and privacy Contact Information EMail jeff at zeos dot ca Wire j
+fry fingerprints Threema TUKDSKM6 fingerprint cb8a1e3e2ea4e8d9905d44f049efb36a GnuPG 0x76B1A823FCC65FA3 E8FF 07F8 CC8B 9
+5..."}, ...]
+```
+
+## Adding Searching to the Template
+
+I added the following "search" button that pops up a modal search window (I'm using Bootstrap):
+
+```html
+<a href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+  <span class="hidden-sm hidden-md hidden-lg">search</span> <span id="searchglyph" class="fas fa-search"></span>
+</a>
+```
+
+And then the following modelSearch window:
+
+```html
+  <div id="modalSearch" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Search</h4>
+        </div>
+        <div class="modal-body">
+
+            <form style="padding-bottom: 10px">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><span class="fa fa-search"></span></span>
+                <input type="text" id="search" class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+              </div>
+            </form>
+
+            <div id="resultsPane" style="display: none;">
+              <h4>Results</h4>
+              <ul id="results">
+              </ul>
+            </div>
+
+            <div id="noResultsPane" style="display: none;">
+              There are no search results for this search.
+            </div>
+            <div style="font-size: 8pt; color: #888; padding-top: 10px;">
+              Use "*" in your search as a wildcard (i.e. "linu*")
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+```
+
+The following JavaScript, handles the searching behaviour:
+
+```js
+var lunrIndex, pagesIndex;
+
+function initLunr() {
+    // First retrieve the index file
+    $.getJSON("/lunr.json")
+        .done(function(index) {
+            pagesIndex = index;
+
+            // Set up lunrjs by declaring the fields we use
+            // Also provide their boost level for the ranking
+            lunrIndex = lunr(function() {
+                this.field("title", {
+                    boost: 10
+                });
+                this.field("tags", {
+                    boost: 5
+                });
+                this.field("content");
+
+                // ref is the result item identifier (I chose the page URL)
+                this.ref("href");
+
+                pagesIndex.forEach(function(page) {
+                    this.add(page);
+                }, this);
+            });
+
+            // Feed lunr with each file and let lunr actually index them
+        })
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ", " + error;
+            console.error("Error getting Hugo index file:", err);
+        });
+}
+
+// Nothing crazy here, just hook up a listener on the input field
+function initUI() {
+    var $root = $("#modalSearch");
+    var $results = $root.find("#results");
+
+    $root.on("show.bs.modal", function(e) {
+        $root.find("#search").val("");
+        if (!lunrIndex) {
+            initLunr();
+        }
+    });
+
+    $root.find("#search").keyup(function() {
+        var query = $(this).val();
+        var results = search(query);
+        if (!query) {
+            $root.find("#resultsPane").hide();
+            $root.find("#noResultsPane").hide();
+        } else if (!results.length || query.length < 2) {
+            $root.find("#resultsPane").hide();
+            $root.find("#noResultsPane").show();
+        } else {
+            $root.find("#resultsPane").show();
+            $root.find("#noResultsPane").hide();
+            $results.empty();
+            renderResults($results, results);
+        }
+    });
+}
+
+/**
+ * Trigger a search in lunr and transform the result
+ *
+ * @param  {String} query
+ * @return {Array}  results
+ */
+function search(query) {
+    // Find the item in our index corresponding to the lunr one to have more info
+    // Lunr result: 
+    //  {ref: "/section/page1", score: 0.2725657778206127}
+    // Our result:
+    //  {title:"Page1", href:"/section/page1", ...}
+    return lunrIndex.search(query).map(function(result) {
+            return pagesIndex.filter(function(page) {
+                return page.href === result.ref;
+            })[0];
+        });
+}
+
+/**
+ * Display the 10 first results
+ *
+ * @param  {Array} results to display
+ */
+function renderResults($results, results) {
+    if (!results.length) {
+        return;
+    }
+
+    // Only show the ten first results
+    results.slice(0, 10).forEach(function(result) {
+        var $result = $("<li>");
+        $result.append($("<a>", {
+            href: result.href,
+            text: "» " + result.title
+        }));
+        $results.append($result);
+    });
+}
+
+$(document).ready(function() {
+    initUI();
+});
+```
+
+Obviously, make sure to include `lunr.min.js` and `search.js` in your page:
+
+```html
+<script src="{{ "js/lunr.min.js" | absURL }}"></script>
+<script src="{{ "js/search.js" | absURL }}"></script>
+```
+
+## Building a Lunr index automatically
+
+I add a new stage to my `.gitlab-ci.yml` file called `index`, and then added the following:
+
+```
+index:
+  stage: index
+  image: node
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+  - npm install -g grunt
+  - npm install grunt string yamljs
+  - grunt lunr-index
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+```
 
 And that's about it!
