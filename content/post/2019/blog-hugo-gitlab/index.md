@@ -313,6 +313,11 @@ module.exports = function(grunt) {
             if (filename === "index.md") {
                 href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(filename).s;
             }
+            
+            // Skip drafts
+            if (frontMatter.draft) {
+                return;
+            }
 
             // Build Lunr index for this page
             pageIndex = {

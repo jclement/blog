@@ -65,6 +65,11 @@ module.exports = function(grunt) {
                 href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(filename).s;
             }
 
+            // Skip drafts
+            if (frontMatter.draft) {
+                return;
+            }
+
             // Build Lunr index for this page
             pageIndex = {
                 title: frontMatter.title,
