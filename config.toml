@@ -28,7 +28,7 @@ pygmentsCodefencesGuessSyntax = false
   selfHosted = true
   rss = true
   comments = true
-  gcse = "002888195400749182309:cakccbp7nyf"
+  #gcse = "002888195400749182309:cakccbp7nyf"
 
 [[Params.bigimg]]
   src = "img/triangle.jpg"
