@@ -1,5 +1,6 @@
 stages:
   - build
+  - index
   - deploy
   
 build:
@@ -10,6 +11,21 @@ build:
   script:
   - hugo version
   - hugo
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+index:
+  stage: index
+  image: node
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+  - npm install -g grunt
+  - npm install grunt string yamljs
+  - grunt lunr-index
   artifacts:
     paths:
     - public
