@@ -22,6 +22,11 @@ pygmentsCodefencesGuessSyntax = false
     [markup.goldmark.renderer]
       unsafe = true
 
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 1
+
 [Params]
   subtitle = "Code, Wood, and Unicycles"
   readingTime = true
