@@ -17,6 +17,11 @@ pygmentsCodefencesGuessSyntax = false
 [BlackFriday]
   smartypants = false
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [Params]
   subtitle = "Code, Wood, and Unicycles"
   readingTime = true
