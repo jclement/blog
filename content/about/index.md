@@ -52,9 +52,14 @@ My name is Jeff Clement.
 
 <tr>
 <th>Twitter:</th>
-<td><a href="https://twitter.com/jsc_yyc">@jsc_yyc</a></td>
+<td><a href="https://twitter.com/OneWheelGeek">@OneWheelGeek</a></td>
 </tr>
-    
+
+<tr>
+<th>Reddit:</th>
+<td><a href="https://www.reddit.com/user/onewheelgeek">OneWheelGeek</a></td>
+</tr>
+
 <tr>
 <th>Keybase:</th>
 <td><a href="https://keybase.io/jsc">jsc</a></td>
