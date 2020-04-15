@@ -23,16 +23,6 @@ My name is Jeff Clement.
 </tr>
 
 <tr>
-<th>Wire:</th>
-<td>@jfry (<a href="https://jsc.keybase.pub/wire.txt">fingerprints</a>)</td>
-</tr>
-
-<tr>
-<th>Threema:</th>
-<td><a href="threema.png">TUKDSKM6 (fingerprint: cb8a1e3e2ea4e8d9905d44f049efb36a)</td>
-</tr>
-
-<tr>
 <th>GnuPG:</th>
 <td><a href="https://keybase.io/jsc/key.asc">61A0 DD3C D0EE 9A8D 32C2  1ADF 9C4D 3814 37B2 E99B</a><br />
     <a href="/gpg/transition_20191004.txt">transition statement 2019-10-04</a><br />
