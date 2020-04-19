@@ -107,6 +107,17 @@ pygmentsCodefencesGuessSyntax = false
 #    weight = 2
 
 [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    weight = 4
+
+[[menu.main]]
+    parent = "projects"
+    name = "Werdz"
+    url = "https://werdz.ca"
+    weight = 1
+
+[[menu.main]]
     identifier = "code"
     name = "Code"
     weight = 3
