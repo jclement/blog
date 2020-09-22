@@ -1,4 +1,4 @@
-baseurl = "https://zeos.ca"
+baseurl = "https://blog.zeos.ca"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
@@ -121,12 +121,6 @@ pygmentsCodefencesGuessSyntax = false
     identifier = "code"
     name = "Code"
     weight = 3
-
-[[menu.main]]
-    parent = "code"
-    name = "Gitlab"
-    url = "https://gitlab.adipose.net/explore/projects"
-    weight = 1
 
 [[menu.main]]
     parent = "code"
