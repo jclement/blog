@@ -15,7 +15,7 @@ tasks:
     cd $site
     hugo
     npm install grunt string yamljs
-    grunt lunr-index
+    ./node_modules/grunt/bin/grunt lunr-index
     tar -C public -cvz . > ../site.tar.gz
 - upload: |
     acurl -f https://pages.sr.ht/publish/$site \
