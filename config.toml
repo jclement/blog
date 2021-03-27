@@ -27,7 +27,7 @@ pygmentsCodefencesGuessSyntax = false
     startLevel = 1
 
 [Params]
-  subtitle = "Code, Wood, Unicycles & HAM"
+  subtitle = "Code. Privacy. Wood. Unicycles. Radio."
   readingTime = true
   hideAuthor = true
   logo = "img/avatar-icon.png"

@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/jsc
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.straybits.org
+  * I am jsc (https://keybase.io/jsc) on keybase.
+  * I have a public key ASAbHHW4_oD9P35wxeWLuG_cEbAzUiGweyLeJ2tDeoNQdAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101307a7d2cf4a49beb180fb19892394fb8d3cc14c5ad81b08a501bad6b5362fdea0a",
+      "host": "keybase.io",
+      "kid": "01201b1c75b8fe80fd3f7e70c5e58bb86fdc11b0335221b07b22de276b437a8350740a",
+      "uid": "52e387e0223a2c0c439eae813f1d7700",
+      "username": "jsc"
+    },
+    "merkle_root": {
+      "ctime": 1616860882,
+      "hash": "cf5bff84c057c7baac9f8ec324e679f76d0dab37511199cf924267378aa393c24871585edae5a4029c090d955c5f6b051e216b93becfeff685e3a4274ecfdbed",
+      "hash_meta": "6100cd317c09019262c91e7455b813d4b1cf24c75d441a670128b872ba5784e4",
+      "seqno": 19483937
+    },
+    "service": {
+      "entropy": "8aTxA0Nuw7Ee4so5vUhSMjHd",
+      "hostname": "www.straybits.org",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.0"
+  },
+  "ctime": 1616860943,
+  "expire_in": 504576000,
+  "prev": "176f3edd75e24e35a113d41a2ec699b6688593e47801039f7b7cd118595f217e",
+  "seqno": 176,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgGxx1uP6A/T9+cMXli7hv3BGwM1IhsHsi3idrQ3qDUHQKp3BheWxvYWTES5cCzLDEIBdvPt114k41oRPUGi7GmbZohZPkeAEDn3t80RhZXyF+xCAf2I0+XygvjQJP48RVcgM+ws4+7KkA6jseWmJTEentugIBwqNzaWfEQCjzMM26aFd5yjchCzkKmiluWdiNthG/ymW81RHn4Dy+mjqEjbelqUW2vhj8cJeJElPDa/rG81ovPtbeOoO4aAuoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCAaeM7F/DgM0Ct8dIdKu7KMiEgrOVXKu/YsKh7nbPKjnaN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jsc
+
+==================================================================
