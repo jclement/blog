@@ -51,7 +51,7 @@ pygmentsCodefencesGuessSyntax = false
 
 [Author]
   name = "Jeff Clement"
-  #email = "jeff at zeos dot ca"
+  email = "jeffrey dot clement at gmail dot com"
   #facebook = "username"
   #googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
   #gitlab = "jeff"
@@ -69,7 +69,7 @@ pygmentsCodefencesGuessSyntax = false
   #bandcamp = "username"
   #itchio = "username"
   mastodon = "onewheelgeek@mastodon.social"
-  #keybase = "jsc"
+  keybase = "jsc"
 
 
 [[menu.main]]
@@ -127,6 +127,12 @@ pygmentsCodefencesGuessSyntax = false
     name = "Github"
     url = "https://github.com/jclement"
     weight = 2
+
+[[menu.main]]
+    parent = "code"
+    name = "Source hit"
+    url = "https://git.sr.ht/~onewheelgeek/"
+    weight = 1
 
 [[menu.main]]
     name = "About"
