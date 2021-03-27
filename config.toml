@@ -1,4 +1,4 @@
-baseurl = "https://straybits.org"
+baseurl = "https://www.straybits.org"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"

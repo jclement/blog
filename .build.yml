@@ -9,7 +9,7 @@ packages:
 - nodejs
 - npm
 environment:
-  site: straybits.org
+  site: www.straybits.org
 tasks:
 - package: |
     cd $site
@@ -19,6 +19,4 @@ tasks:
     tar -C public -cvz . > ../site.tar.gz
 - upload: |
     acurl -f https://pages.sr.ht/publish/$site \
-        -Fcontent=@site.tar.gz 
-    acurl -f https://pages.sr.ht/publish/www.straybits.org \
         -Fcontent=@site.tar.gz 
