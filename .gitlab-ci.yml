@@ -1,0 +1,52 @@
+stages:
+  - build
+  - index
+  - deploy
+  
+build:
+  stage:  build
+  image: registry.gitlab.com/pages/hugo:latest
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+  - hugo version
+  - hugo
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+index:
+  stage: index
+  image: node
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+  - npm install -g grunt
+  - npm install grunt string yamljs
+  - grunt lunr-index
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+deploy:
+  stage:  deploy
+  image: alpine:latest
+  before_script:
+    - apk update && apk add openssh-client bash rsync
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  environment:
+    name: production
+    url: zeos.ca
+  script:
+    - rsync -hrvz --delete --exclude=_ -e "ssh" --progress public/ deploy_zeos@wilbur.zeos.ca:/var/www/zeos.ca
+  only:
+    - master

@@ -1,0 +1,83 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+OpenPGP Key Transition Statement for Jeff Clement
+
+I have created a new OpenPGP key and will be transitioning away from
+my old key.  The old key has not been compromised and will continue to
+be valid for some time, but I prefer all future correspondence to be
+encrypted to the new key, and will be making signatures with the new
+key going forward.
+
+I would like this new key to be re-integrated into the web of trust.
+This message is signed by both keys to certify the transition.  My new
+and old keys are signed by each other.  If you have signed my old key,
+I would appreciate signatures on my new key as well, provided that
+your signing policy permits that without re-authenticating me.
+
+The old key, which I am transitioning away from, is:
+
+pub   rsa4096/0x76B1A823FCC65FA3 2018-10-06 [SC] [expires: 2022-09-24]
+      Key fingerprint = E8FF 07F8 CC8B 955B FF10  EC2D 76B1 A823 FCC6 5FA3
+
+The new key, to which I am transitioning, is:
+
+pub   rsa4096/0x9C4D381437B2E99B 2019-10-05 [SC] [expires: 2024-10-03]
+      Key fingerprint = 61A0 DD3C D0EE 9A8D 32C2  1ADF 9C4D 3814 37B2 E99B
+
+The entire key may be downloaded from:
+    https://keybase.io/jsc/key.asc
+    https://zeos.ca/gpg/jclement-gpg.asc
+
+To fetch the full new key from a public key server using GnuPG, run:
+
+  gpg --keyserver keys.gnupg.net --recv-key 0x9C4D381437B2E99B
+
+If you already know my old key, you can now verify that the new key is
+signed by the old one:
+
+  gpg --check-sigs 0x9C4D381437B2E99B
+
+If you are satisfied that you've got the right key, and the User IDs
+match what you expect, I would appreciate it if you would sign my key:
+
+  gpg --sign-key 0x9C4D381437B2E99B
+
+You can upload your signatures to a public keyserver directly:
+
+  gpg --keyserver keys.gnupg.net --send-key 0x9C4D381437B2E99B
+
+If you'd like any further verification or have any questions about the
+transition please contact me directly.
+
+To verify the integrity of this statement:
+
+  wget -q -O- https://zeos.ca/gpg/transition-20191004.txt|gpg --verify
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEznaSQj8vRPzcP11YINeJ0OEH7S0FAl2Y5LgACgkQINeJ0OEH
+7S2S9A/9Hr0vgxkrv9eeJD1okGuMBFGDeFt88Z2moRMXDsHw+Z/Qds4zjpTkHuEk
+VGAnqTkNDhS8z3TN8ZnyCD7zIe33T/rWlMJXR9c/OpPV28JLea+XI7GNLc5j2lGu
+Z3VrA6VySUWSHTutmeWb6awdLnp+C0xGhORbhRV9RE317EQaRnJyoPEXNEnmpejE
+um5wFsYhaw2EnAIZ/2WHvMBsYi3QA7TlpNSzJ7eg/ySPq7M/tUyTgznF/D9bQwo5
+hXav5Xa1oVtl4qMMoMSX8X7HdM4YGk2TXgbC/hObLNIB2mqLd+9xRi16Of6ANqLe
+bK30Uw5I/COYHoC13Npc0PJ2ILC09WLKXH1SModmW5fufHziVJvJEf9PSB4JwJjT
+iN8GM+CUHOWl+eK/f3hl/wlzTEFkOsVwO5Q+ZW4+1PnW32xoVpHCFiV8wraG9BzW
+luhjnf+UNa3sdgk7Qhf6US1cWlf7fv31MUe1i8sVj5OYtxzw/7ADoQOHAqRIisZa
+8hUShEOQlk/XaXUvhTOJw/p6soxQrk6JEt230YBYmqWliycQEwQJwTD6kb7vDuOk
+Ep+c16Zpjw02rAl+QcF6dhdNu9aBJbtYqi9wF1ZeqL7aW2mtrs+Sv+bQdcr6SFjM
+aq2MN8YDjhaooLIq0gCkQfAXcnY6Y4TmumbLSRahUAozeNRlRKKJAjMEAQEKAB0W
+IQTFzMGUDX7rZnZk+K8YtyYY+eGSrgUCXZjkxgAKCRAYtyYY+eGSrgIBD/9rLRTv
+rN84eYoEfujq4gHUAK8tszFCR+6y96M0JL7s1gpvl8/pS1O+lpF/BrMI4uge0y1r
+cbXPA3JD50v86RMqribZgUcXwMj8mT11CnUuowFf83zWdrr0jUhz6tywjJrDu6E6
+eCNsbNjjtutuqZYjngfUjUChygEG8yG51uJImm/hEOiWQy2JZJ0Z/3qRFyTUeGzS
+/GeeZiyzmwcFY76qyoDrS6eUb2MaADLhBd4XcDzFtnK77PDuIHe9pbNCTXNHRWlH
+rI2p75fdK/tltYWjp1UzNo1IuQ8hQID8RT/GjrTswUcO8wAWlArz/1m+tVJXrtC9
+IH7YgECBIvCM1G71MAzlAZq/OcTCpQ9PQGxi0AFGAnLVGdomYNwaNKdzvA8ZC8Jj
+1X5yg2ZOLsoVZVFp8Z9bBj9LPyrVzmmdofcB4CKslOcAF3QUKWMSH4dLVc0V3n2B
+T6RdoH7mFnuTNAddtHibmgmEt5eKfmMAMYTYCPIjLPn+2d+06PUPr+6XzHD0/cKz
+CnOURYM31Z3DT+wrUarCKFqpHO+As2A+coEKQOuNqmnQGW6/kk15Sk46v/i0UpGO
+CCwzfWulPdcOPuxau0iOspHlzUWtvv1ZRXdtchcLUT+RguhTxeVrgzSUTZHe1p+Z
+vSvbeuEpeamSjZtg/NanAmYk9KfioSCXXRn+Hw==
+=/OXN
+-----END PGP SIGNATURE-----

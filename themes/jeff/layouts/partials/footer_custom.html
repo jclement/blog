@@ -1,0 +1,10 @@
+<script>
+    $(function() {
+        $(".mail-link").each(function(_, el) {
+            var addr = $(el).attr("data");
+            addr = addr.replace(" at ","@").replace(" dot ", ".");
+            $(el).find(".mail-addr").text(addr);
+            $(el).attr("href", "mailto:" + addr);
+        });
+    });
+</script>

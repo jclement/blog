@@ -1,0 +1,82 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+OpenPGP Key Transition Statement for Jeff Clement
+
+I have created a new OpenPGP key and will be transitioning away from
+my old key.  The old key has not been compromised and will continue to
+be valid for some time, but I prefer all future correspondence to be
+encrypted to the new key, and will be making signatures with the new
+key going forward.
+
+I would like this new key to be re-integrated into the web of trust.
+This message is signed by both keys to certify the transition.  My new
+and old keys are signed by each other.  If you have signed my old key,
+I would appreciate signatures on my new key as well, provided that
+your signing policy permits that without re-authenticating me.
+
+The old key, which I am transitioning away from, is:
+
+pub   4096R/0x4378F71AB4EA336E 2015-03-20
+      Key fingerprint = 6B42 6A57 875A E6A7 C910  EF91 4378 F71A B4EA 336E
+
+The new key, to which I am transitioning, is:
+
+pub   rsa4096/0x76B1A823FCC65FA3 2018-10-06 
+      Key fingerprint = E8FF 07F8 CC8B 955B FF10  EC2D 76B1 A823 FCC6 5FA3
+
+The entire key may be downloaded from: https://keybase.io/jsc/key.asc
+
+To fetch the full new key from a public key server using GnuPG, run:
+
+  gpg --keyserver keys.gnupg.net --recv-key 0x76B1A823FCC65FA3
+
+If you already know my old key, you can now verify that the new key is
+signed by the old one:
+
+  gpg --check-sigs 0x76B1A823FCC65FA3
+
+If you are satisfied that you've got the right key, and the User IDs
+match what you expect, I would appreciate it if you would sign my key:
+
+  gpg --sign-key 0x76B1A823FCC65FA3
+
+You can upload your signatures to a public keyserver directly:
+
+  gpg --keyserver keys.gnupg.net --send-key 0x76B1A823FCC65FA3
+
+If you'd like any further verification or have any questions about the
+transition please contact me directly.
+
+To verify the integrity of this statement:
+
+  wget -q -O- https://www.forgesi.net/transition-20181006.txt|gpg --verify
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEa0JqV4da5qfJEO+RQ3j3GrTqM24FAlu5EqkACgkQQ3j3GrTq
+M24sYhAAu3HIKu55pYmrOmAIjBRz2jllbjFc+E0tCd+px01Gepl3tI4JZhG8LV8S
+M2b4KJFuRBXfReLuXLPTbR2onhdH0N5jM6GcfijerqthJG4qc0Oo4VIJB6hziKkR
+XOdM4wx+WZKEq8LWViqguYMzq3XRl4c/3aLebvtrcPGDlmCVVG6J3vyYF7MW6Fbp
+CvJGGhBQdQms4GCvLpPk913rdTPTKLqCu+aCMR86/nOCCaK3blEOzmGD/yFDPgDx
+YvISaGefkNe4h7eU2pxLsPLI5COfKJu8FF0Kj88DH7Ev1hk86pEdVVzaSR6NQp4L
+7Cl7kKclXhrKy2RejRPFbDMS2lZV9svYAlrdg8TuL/GS1wA9DnnclgbkPlkTj3ER
+2sSObaFHcVjVwctR4C4jg369DzzDjxduF7Dgjv+K6JAJj+3Ps0DmlRv9OJgpvqlO
+nzDWuMT/GKP8UagO02s4lGegyDajn95msOCS2Y9kFsPH6iFhzJOkZ6aP22ic96Dh
+cpzQPtihmsh3nxGRITxACUSiFBNnahezIPrxh3U6bFBUnTSZE58UUvy2/Lfmp0mY
+zr0j558nWDczc0TqhsonzlwwLd1oE/LKObEnR4EsFMJiKFzpRfA7WRjdXvRj9znz
+KFSXtKeFyIFQEj+aPDbeG60gBx2shX9/JWqDPmW1McnZbr2LlNOJAjMEAQEKAB0W
+IQTFzMGUDX7rZnZk+K8YtyYY+eGSrgUCW7kSqQAKCRAYtyYY+eGSrnzHEACVmjQc
+ng+RK4K/4HuAJQzoOBHP4N4DPdik0bLSIb0/Zr7sB7WEjzTY15WxpvB3DjJvCC+l
+DTa+/fMNiso9iAsAJdnGGLeyKLgcW5F8Vi8V+goPx+PHibxwt3O0JVGMItVSbx/4
++YC1uOQJkeZiFXbfXK+NR4PAB0glVx1ijtp/XnsLbioNl1nGKW12mLH+FB394fGb
++HyDJmSZmuUftsPIaWOZi4OQ26flaZgTroYE6dGcarJtB4frU+jUjStYJFYPQjqn
+HEjOJkR5cUcU9M00MgF32zAccatsgez+oI1xbriiCrQW0pfmR2Os3B67gjy0g+oK
+Xg0heBYg1dnQ9iAgriAlMOeBSLpqNZedmHhl40EvU4LsGri7Ke5vzZ1p6Bap3/Pe
+eYUR7+KJjutSgbLVygS4Dgz7Y1Okiz2w+qHhsEOX7U0RaAw+wDhMh1PiB8rKPg9Y
+fnkqw69zPK/mmAW1Plg5c0zlYD1w2D4+6aLv6/8qTscgplGvIFBiI+bPQuTsmlWu
+psQztXOyga4IFcUOqnS/Q8y8y+/+U+be3rZ5FpnCwD/WmRzM1RyVfiGO/1TyW49k
+7HulqGJSEruQ2Vq8mTgW90Mqh+nRvbL5hfTCRHXkQOPsOjlSmtwocbCD9Gu0QriY
+fZkNfqEtvIgU7z6IzoBf+cdWwBgJ29j8ScduxQ==
+=l5ku
+-----END PGP SIGNATURE-----
