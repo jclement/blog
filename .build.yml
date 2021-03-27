@@ -7,6 +7,7 @@ sources:
 packages:
 - hugo
 - nodejs
+- npm
 environment:
   site: straybits.org
 tasks:
