@@ -14,7 +14,6 @@ tasks:
 - package: |
     cd $site
     hugo
-    npm install -g grunt
     npm install grunt string yamljs
     grunt lunr-index
     tar -C public -cvz . > ../site.tar.gz
