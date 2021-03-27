@@ -13,7 +13,12 @@ tasks:
 - package: |
     cd $site
     hugo
+    npm install -g grunt
+    npm install grunt string yamljs
+    grunt lunr-index
     tar -C public -cvz . > ../site.tar.gz
 - upload: |
     acurl -f https://pages.sr.ht/publish/$site \
+        -Fcontent=@site.tar.gz 
+    acurl -f https://pages.sr.ht/publish/www.straybits.org \
         -Fcontent=@site.tar.gz 
