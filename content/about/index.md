@@ -31,6 +31,7 @@ My name is Jeff Clement.
     <a href="/gpg/transition_20150323.txt">transition statement 2015-03-23</a></td>
 </tr>
 
+<!--
 <tr>
 <th>LinkedIn:</th>
 <td><a href="http://www.linkedin.com/profile/view?id=6394933">Jeff Clement</a></td>
@@ -40,11 +41,7 @@ My name is Jeff Clement.
 <th>Github:</th>
 <td><a href="https://github.com/jclement">jclement</a></td>
 </tr>
-
-<tr>
-<th>Twitter:</th>
-<td><a href="https://twitter.com/OneWheelGeek">@OneWheelGeek</a></td>
-</tr>
+-->
 
 <tr>
 <th>Mastodon:</th>
@@ -52,9 +49,16 @@ My name is Jeff Clement.
 </tr>
 
 <tr>
+<th>Twitter:</th>
+<td><a href="https://twitter.com/OneWheelGeek">@OneWheelGeek</a></td>
+</tr>
+
+<!--
+<tr>
 <th>Reddit:</th>
 <td><a href="https://www.reddit.com/user/onewheelgeek">OneWheelGeek</a></td>
 </tr>
+-->
 
 <tr>
 <th>Keybase:</th>
