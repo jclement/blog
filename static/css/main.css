@@ -435,7 +435,7 @@ body {
   }
   
   .post-preview .post-title {
-    font-size: 30px;
+    font-size: 20px;
     margin-top: 0;
   }
   .post-preview .post-subtitle {
@@ -488,7 +488,7 @@ body {
   
   @media only screen and (min-width: 768px) {
     .post-preview .post-title {
-      font-size: 36px;
+      font-size: 26px;
     }
   }
   
