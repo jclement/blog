@@ -130,7 +130,7 @@ pygmentsCodefencesGuessSyntax = false
 
 [[menu.main]]
     parent = "code"
-    name = "Source hit"
+    name = "sr.ht"
     url = "https://git.sr.ht/~onewheelgeek/"
     weight = 1
 

@@ -11,6 +11,7 @@ My name is Jeff Clement.
 - I make things, usually out of wood
 - I make software
 - I love computer security and privacy
+- Recently, I'm into amateur radio
 
 ### Contact Information
 
