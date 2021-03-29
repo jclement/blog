@@ -39,6 +39,9 @@ pygmentsCodefencesGuessSyntax = false
   comments = true
   #gcse = "002888195400749182309:cakccbp7nyf"
 
+[[Params.bigimg]]
+  src = "img/map.png"
+  #desc = "Dark"
 #[[Params.bigimg]]
 #  src = "img/triangle.jpg"
 #  #desc = "Triangle"
