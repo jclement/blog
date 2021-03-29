@@ -39,9 +39,9 @@ pygmentsCodefencesGuessSyntax = false
   comments = true
   #gcse = "002888195400749182309:cakccbp7nyf"
 
-[[Params.bigimg]]
-  src = "img/triangle.jpg"
-  #desc = "Triangle"
+#[[Params.bigimg]]
+#  src = "img/triangle.jpg"
+#  #desc = "Triangle"
 #[[Params.bigimg]]
 #  src = "img/sphere.jpg"
 #  desc = "Sphere"
