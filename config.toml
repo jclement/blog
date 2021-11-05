@@ -43,6 +43,10 @@ pygmentsCodefencesGuessSyntax = false
   src = "img/blue.png"
 [[Params.bigimg]]
   src = "img/green.png"
+[[Params.bigimg]]
+  src = "img/red.png"
+[[Params.bigimg]]
+  src = "img/yellow.png"
 #[[Params.bigimg]]
 #  src = "img/triangle.jpg"
   #desc = "Triangle"
