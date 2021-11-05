@@ -580,7 +580,7 @@ body {
   }
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading {
-    padding: 100px 0;
+    padding: 50px 0;
     color: #FFF;
     text-shadow: 1px 1px 3px #000;
   }
@@ -637,11 +637,11 @@ body {
     }
     .intro-header.big-img .page-heading,
     .intro-header.big-img .post-heading  {
-      padding: 150px 0;
+      padding: 50px 0;
     }
     .intro-header .page-heading h1,
     .intro-header .tags-heading h1 {
-      font-size: 80px;
+      font-size: 50px;
     }
     .intro-header .post-heading h1 {
       font-size: 50px;

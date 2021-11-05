@@ -40,11 +40,12 @@ pygmentsCodefencesGuessSyntax = false
   #gcse = "002888195400749182309:cakccbp7nyf"
 
 [[Params.bigimg]]
-  src = "img/map.jpg"
-  #desc = "Dark"
+  src = "img/blue.png"
+[[Params.bigimg]]
+  src = "img/green.png"
 #[[Params.bigimg]]
 #  src = "img/triangle.jpg"
-#  #desc = "Triangle"
+  #desc = "Triangle"
 #[[Params.bigimg]]
 #  src = "img/sphere.jpg"
 #  desc = "Sphere"
@@ -58,7 +59,7 @@ pygmentsCodefencesGuessSyntax = false
   #facebook = "username"
   #googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
   #gitlab = "jeff"
-  #github = "jclement"
+  github = "jclement"
   twitter = "OneWheelGeek"
   #reddit = "OneWheelGeek"
   #linkedin = "username"
