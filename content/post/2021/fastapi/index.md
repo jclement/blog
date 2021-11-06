@@ -5,7 +5,6 @@ tags:
   - docker
   - fastapi
   - react
-  - docker
 ---
 
 I've recently been working on a fun Advent of Code project for work and using some new (to me) technologies like [FastAPI](https://fastapi.tiangolo.com/) and Docker for deployment.  This post is a simplification of the project structure and deployment configuration I used (mostly as a reference for future me, but perhaps someone else will find it useful too).  The focus is on project structure and deployment.  This is not intended to be an interesting sample project for FastAPI or React.
