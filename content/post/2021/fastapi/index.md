@@ -239,15 +239,18 @@ Create `Caddyfile` with the configuration for Caddy (the webserver).  In this ca
 ```caddy
 :80
 
-root * /usr/share/caddy/
-file_server browse
-
 handle_path /api/* {
 	reverse_proxy backend:8000 {
         header_up Host {upstream_hostport}
         header_up X-Real-IP {remote_addr}
         header_up X-Forwarded-Host {host}
     }
+}
+
+handle {
+        root * /usr/share/caddy/
+        try_files {path} {file} /index.html
+        file_server
 }
 ```
 
@@ -306,12 +309,12 @@ version: '3.8'
 services:
 
   backend:
-    image: jclement/fastapi-deployment-sample-backend:latest
+    image: index.docker.io/jclement/fastapi-deployment-sample-backend:latest
     restart: always
     command: uvicorn app.main:app --root-path /api --proxy-headers --host 0.0.0.0 --port 8000
 
   frontend:
-    image: jclement/fastapi-deployment-sample-frontend:latest
+    image: index.docker.io/jclement/fastapi-deployment-sample-frontend:latest
     restart: always
     ports:
       - "80:80"
@@ -337,15 +340,18 @@ Create `/docker/demo/Caddyfile` as:
 ```caddyfile
 demo.straybits.org
 
-root * /usr/share/caddy/
-file_server browse
-
 handle_path /api/* {
 	reverse_proxy backend:8000 {
         header_up Host {upstream_hostport}
         header_up X-Real-IP {remote_addr}
         header_up X-Forwarded-Host {host}
     }
+}
+
+handle {
+        root * /usr/share/caddy/
+        try_files {path} {file} /index.html
+        file_server
 }
 ```
 
@@ -362,6 +368,12 @@ www.straybits.org {
                 header_up X-Real-IP {remote_addr}
                 header_up X-Forwarded-Host {host}
             }
+        }
+
+        handle {
+                root * /usr/share/caddy/
+                try_files {path} {file} /index.html
+                file_server
         }
 }
 
@@ -400,6 +412,16 @@ And start the Watchtower container.
 cd /docker/watchtower
 docker-compose up -d
 ```
+
+For private docker repositories it's a bit more complicated:
+1. Login using `docker login` 
+2. Pass the `$HOME/.docker/config.json` file into watchtower by adding a volume in the `docker-compose` file for watchtower: 
+```docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+```
+3. If using Docker Hub, ensure that the images have the full page to the image (`index.docker.io/jclement/fastapi-...` rather than `jclement/fastapi-...`) or you'll get authentication errors
 
 ## Summary
 
