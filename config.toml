@@ -126,21 +126,9 @@ pygmentsCodefencesGuessSyntax = false
     weight = 1
 
 [[menu.main]]
-    identifier = "code"
-    name = "Code"
-    weight = 3
-
-[[menu.main]]
-    parent = "code"
     name = "Github"
     url = "https://github.com/jclement"
-    weight = 2
-
-[[menu.main]]
-    parent = "code"
-    name = "sr.ht"
-    url = "https://git.sr.ht/~onewheelgeek/"
-    weight = 1
+    weight = 3
 
 [[menu.main]]
     name = "About"
