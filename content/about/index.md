@@ -9,6 +9,7 @@ My name is Jeff Clement.
 
 - I ride bikes and unicycles
 - I make things, usually out of wood
+- I overcomplicate my life by self-hosting a bunch of services
 - I make software
 - I love computer security and privacy
 - Recently, I'm into amateur radio
