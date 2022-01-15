@@ -103,7 +103,7 @@ Quick screenshot of the management UI for SyncThing on *mcsyncthing* that I conn
  1. My important files are magically sync'd between my machines.
  2. Because I've broken my data into multiple folders, I can control which machines get which data and avoid filling up the smaller drives on my laptops with data I don't need on those devices.
  3. My files are never stored unencrypted on machines I don't own.
- 4. I can seemlessly access my files from my iPhone (read and upload) via SSH.  For that matter, I can access my files via SSH from anywhere else using my Yubikey.
+ 4. I can seamlessly access my files from my iPhone (read and upload) via SSH.  For that matter, I can access my files via SSH from anywhere else using my Yubikey.
  5. The whole system can tolerate outages of any machine without failing (other than the iPhone access does required *mcsyncthing* to be available)
  6. I have hourly offsite / encrypted backups.
  7. Lots of redundancy:
