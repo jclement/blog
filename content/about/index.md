@@ -21,7 +21,7 @@ My name is Jeff Clement.
 
 <tr>
 <th>E-Mail:</th>
-<td><a href="#" class="mail-link" data="jeffrey.clement at gmail dot com"><span class="mail-addr"></span></a></td>
+<td><a href="#" class="mail-link" data="jeff at straybits dot org"><span class="mail-addr"></span></a></td>
 </tr>
 
 <tr>
