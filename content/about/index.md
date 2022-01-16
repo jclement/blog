@@ -25,7 +25,8 @@ My name is Jeff Clement.
 
 <tr>
 <th>GnuPG:</th>
-<td><a href="https://keybase.io/jsc/key.asc">61A0 DD3C D0EE 9A8D 32C2  1ADF 9C4D 3814 37B2 E99B</a><br />
+<td><a href="/gpg/jclement-gpg.asc">D4F8 0EF0 4E16 4D46 393B  D7C5 80D8 850D 127E 6070</a><br />
+    <a href="/gpg/transition_20220115.txt">transition statement 2022-01-15</a><br />
     <a href="/gpg/transition_20191004.txt">transition statement 2019-10-04</a><br />
     <a href="/gpg/transition_20181009.txt">transition statement 2018-10-09</a><br />
     <a href="/gpg/transition_20150323.txt">transition statement 2015-03-23</a></td>

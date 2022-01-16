@@ -1,0 +1,85 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+OpenPGP Key Transition Statement for Jeff Clement
+
+I have created a new OpenPGP key and will be transitioning away from
+my old key.  The old key has not been compromised and will continue to
+be valid for some time, but I prefer all future correspondence to be
+encrypted to the new key, and will be making signatures with the new
+key going forward.
+
+I would like this new key to be re-integrated into the web of trust.
+This message is signed by both keys to certify the transition.  My new
+and old keys are signed by each other.  If you have signed my old key,
+I would appreciate signatures on my new key as well, provided that
+your signing policy permits that without re-authenticating me.
+
+The old key, which I am transitioning away from, is:
+
+pub   rsa4096/0x9C4D381437B2E99B 2019-10-05 [SC] [expires: 2026-05-03]
+      Key fingerprint = 61A0 DD3C D0EE 9A8D 32C2  1ADF 9C4D 3814 37B2 E99B
+
+The new key, to which I am transitioning, is:
+
+pub   rsa4096/0x80D8850D127E6070 2020-05-10 [SC] [expires: 2030-05-08]
+      Key fingerprint = D4F8 0EF0 4E16 4D46 393B  D7C5 80D8 850D 127E 6070
+uid                   [ultimate] Jeffrey Clement <jclement@straybits.org>
+uid                   [ultimate] Jeffrey Clement <jeff@straybits.org>
+
+The entire key may be downloaded from:
+    https://keybase.io/jsc/key.asc
+    https://www.straybits.org/gpg/jclement-gpg.asc
+
+To fetch the full new key from a public key server using GnuPG, run:
+
+  gpg --keyserver keys.gnupg.net --recv-key 0x80D8850D127E6070
+
+If you already know my old key, you can now verify that the new key is
+signed by the old one:
+
+  gpg --check-sigs 0x80D8850D127E6070
+
+If you are satisfied that you've got the right key, and the User IDs
+match what you expect, I would appreciate it if you would sign my key:
+
+  gpg --sign-key 0x80D8850D127E6070
+
+You can upload your signatures to a public keyserver directly:
+
+  gpg --keyserver keys.gnupg.net --send-key 0x80D8850D127E6070
+
+If you'd like any further verification or have any questions about the
+transition please contact me directly.
+
+To verify the integrity of this statement:
+
+  wget -q -O- https://www.straybits.org/gpg/transition-20220115.txt|gpg --verify
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEf1jS8PzrXkyiQkCUO8tDo/Dh19oFAmHjZ5oACgkQO8tDo/Dh
+19pzLBAAxqV8TIR/P8mHV8v/damJHRUPDKXYvyzgB7krV4ZuYy3BiBj0NkKON5Ab
+E27wX3iSoVr9Wz+vACkAKgTUZhPrHYs/m0/B3djRlbm6FdOSI7t1hXARqPLfVbHr
+/cff4NbexRnWfXE2muD1ocMoYZoxRmfhqerVkmeWVHk1B7yHNNeJwsYr95ZsIrjV
+il5XoxEqmZ6siPFqZBon8LUK8DTEdNtm7sf38hXhUQ3gX9b8jbCWOCwZQyJFmMVR
+mdHeuQYpY5XFQugQq4ALAt78UN/EuuLBD/pR6MSukSg1Rc1JwmwX4LJ5u4deKD4c
+tHPSiKYHXOPuJqsNYug86IFkIj5aCbc+mt6ic4+/TGgR4E+HgqCNJsRfALErjW4s
+iYW3yPR/ieRYfiOT3mIgSCEFF97GmDFWZTSxzhf0hRygYO42l+e5qOvqNvb+FDe/
+GmP4yLDLfbEEU66/UL6BCsKBpvZlk6DIp0RrsslQS9eWAWEU1btdE6YeYw6URe8f
+mFVndrLe/EVXvtVzeDyq+txp4nIW/MpvscJD5OFF0oudWBJtMFmugLlGE0Px8kgW
+Ufb++mF9FL5KAShr4rTFWwdf93a5h98JKlQ6oAUjrF5zn7956j+Kn3iEjrV+OMXN
+CaGxJXDQ8xxki6IR7+jOxnSlprH3iY8zH2mUhfT5l5op5yNeN/WJAjMEAQEKAB0W
+IQTOdpJCPy9E/Nw/XVgg14nQ4QftLQUCYeNnpwAKCRAg14nQ4QftLYzOD/0cagor
+WSOMzKOGP4h9MlPYUF0vAOOR0e37hxJnMYy65i0kYYCVlgi7j0UU3EninGg1puHI
+R+1zX9snWtNdR2rhbz1HCPMm04dSB4xDmfaZ5rWVp0BMfdu09a0doxFBYHt6Eemk
+yGOJU7eEVfGhhvIhSQcKHn0j+0Z3iAtnpE5+R4eueG01jjbLnzt0vaAGsa7V21eD
+k2ALHWGk92G20FJ1oP3uCFox0cOa/0tE/DOBnWg080HQZUbTSopm/OIETFjvR8sm
+bF/Wl6jzfv+S4UjEfuP6WKAF6+/o4yZ7VklFYdV4qLfLq7KlY4N6F9xJzVkQaGy3
+LwD3lRM69mW/3yZv1MvX6AQgkLC4Mj9s0H2JFTWd/zFannwyamPcVa6l0h3FpAsg
+lnuPBlOVjwm7TlgZjb1U0R/YD0Fzusyz0ks1+XTNeFzKNgA/74H/NBf2zutt81iN
+CkuKr+8SdqKztcEAMLvsAXTmnsviHrCSI4jMukLTmNrJE7pBNY/nksmnMHKQ7u7+
+l1JN2eqdYgJyQaanmeh+pWVOCKUqXdRzYMPHyfLcc26vzkw4KZbtO3aGrM6Jcoy+
+9UeDf41RdnEaQxMIiLgDIgC8mFbtDZ6ZJ3SOIkMR+Gpj7VXRIqsJOC7oLFJATB9V
+s794hAxopRtXmzMty3s9xoBJusNtuFgcoMbO4g==
+=JAa/
+-----END PGP SIGNATURE-----
