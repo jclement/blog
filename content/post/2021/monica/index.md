@@ -42,12 +42,12 @@ services:
     environment:
       - APP_KEY=....
       - APP_ENV=production
-      - APP_URL=https://crm.straybits.org
+      - APP_URL=https://crm.zeos.ca
       - DB_HOST=db
       - MAIL_DRIVER=smtp
-      - MAIL_HOST=box.straybits.org
-      - MAIL_USERNAME=crm@straybits.org
-      - MAIL_FROM_ADDRESS=crm@straybits.org
+      - MAIL_HOST=box.zeos.ca
+      - MAIL_USERNAME=crm@zeos.ca
+      - MAIL_FROM_ADDRESS=crm@zeos.ca
       - MAIL_PASSWORD=....
       - MAIL_PORT=587
     volumes:
@@ -77,24 +77,24 @@ volumes:
 
 After starting this up `docker-compose up -d`, I now have Monica listening on 127.0.0.1:18102 on my server.
 
-Next, I add a new Virtual Host (`/etc/nginx/sites-available/crm.straybits.org.config` and symlink that to `/etc/nginx/sites-enabled/crm.straybits.org.config`) on my local NGINX server to redirect traffic from "crm.straybits.org" to "127.0.0.1:18102" (using certbot to fetch an SSL certificate for this thing).
+Next, I add a new Virtual Host (`/etc/nginx/sites-available/crm.zeos.ca.config` and symlink that to `/etc/nginx/sites-enabled/crm.zeos.ca.config`) on my local NGINX server to redirect traffic from "crm.zeos.ca" to "127.0.0.1:18102" (using certbot to fetch an SSL certificate for this thing).
 
 ```
 server {
   listen 80;
   listen [::]:80;
-  server_name crm.straybits.org;
-  return 301 https://crm.straybits.org$request_uri;
+  server_name crm.zeos.ca;
+  return 301 https://crm.zeos.ca$request_uri;
 }
 
 server {
-  server_name crm.straybits.org;
-  root /var/www/crm.straybits.org;
+  server_name crm.zeos.ca;
+  root /var/www/crm.zeos.ca;
 
   listen [::]:443 ssl; # managed by Certbot
   listen 443 ssl; # managed by Certbot
-  ssl_certificate /etc/letsencrypt/live/crm.straybits.org/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/crm.straybits.org/privkey.pem; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/crm.zeos.ca/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/crm.zeos.ca/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 

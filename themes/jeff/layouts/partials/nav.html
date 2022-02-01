@@ -24,8 +24,8 @@
             </li>
           {{ else }}
             <li>
-            {{ if eq .URL "gemini://gemini.straybits.org" }}
-              <a title="Gemlog" href="gemini://gemini.straybits.org">Gemlog</a>
+            {{ if eq .URL "gemini://gemini.zeos.ca" }}
+              <a title="Gemlog" href="gemini://gemini.zeos.ca">Gemlog</a>
             {{else}}
               <a title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
             {{end}}

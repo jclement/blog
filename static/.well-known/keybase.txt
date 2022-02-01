@@ -4,7 +4,7 @@ https://keybase.io/jsc
 
 I hereby claim:
 
-  * I am an admin of https://www.straybits.org
+  * I am an admin of https://www.zeos.ca
   * I am jsc (https://keybase.io/jsc) on keybase.
   * I have a public key ASAbHHW4_oD9P35wxeWLuG_cEbAzUiGweyLeJ2tDeoNQdAo
 
@@ -20,14 +20,14 @@ To do so, I am signing this object:
       "username": "jsc"
     },
     "merkle_root": {
-      "ctime": 1616860882,
-      "hash": "cf5bff84c057c7baac9f8ec324e679f76d0dab37511199cf924267378aa393c24871585edae5a4029c090d955c5f6b051e216b93becfeff685e3a4274ecfdbed",
-      "hash_meta": "6100cd317c09019262c91e7455b813d4b1cf24c75d441a670128b872ba5784e4",
-      "seqno": 19483937
+      "ctime": 1643753686,
+      "hash": "207be52435e3f2976c7b2d1075012afd2d4ba3fe1563ef93e93185477eb6397636f65b7410e0640dcfefac46a58f62a0fd70445785abeec6074c8cb2d38862c9",
+      "hash_meta": "d0790e25aaf2a4c366cc58bc1989d32c0dac7c46ab6d3358c02d7ce52f458f43",
+      "seqno": 21774329
     },
     "service": {
-      "entropy": "8aTxA0Nuw7Ee4so5vUhSMjHd",
-      "hostname": "www.straybits.org",
+      "entropy": "9S8lF8FVoDEiiQiTu1EPyZbr",
+      "hostname": "www.zeos.ca",
       "protocol": "https:"
     },
     "type": "web_service_binding",
@@ -35,18 +35,18 @@ To do so, I am signing this object:
   },
   "client": {
     "name": "keybase.io go client",
-    "version": "5.6.0"
+    "version": "5.9.0"
   },
-  "ctime": 1616860943,
+  "ctime": 1643753709,
   "expire_in": 504576000,
-  "prev": "176f3edd75e24e35a113d41a2ec699b6688593e47801039f7b7cd118595f217e",
-  "seqno": 176,
+  "prev": "60138fc782038257c195e1227edd337ce519393be35dceb1d6b84d5d76130c97",
+  "seqno": 197,
   "tag": "signature"
 }
 
 which yields the signature:
 
-hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgGxx1uP6A/T9+cMXli7hv3BGwM1IhsHsi3idrQ3qDUHQKp3BheWxvYWTES5cCzLDEIBdvPt114k41oRPUGi7GmbZohZPkeAEDn3t80RhZXyF+xCAf2I0+XygvjQJP48RVcgM+ws4+7KkA6jseWmJTEentugIBwqNzaWfEQCjzMM26aFd5yjchCzkKmiluWdiNthG/ymW81RHn4Dy+mjqEjbelqUW2vhj8cJeJElPDa/rG81ovPtbeOoO4aAuoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCAaeM7F/DgM0Ct8dIdKu7KMiEgrOVXKu/YsKh7nbPKjnaN0YWfNAgKndmVyc2lvbgE=
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgGxx1uP6A/T9+cMXli7hv3BGwM1IhsHsi3idrQ3qDUHQKp3BheWxvYWTES5cCzMXEIGATj8eCA4JXwZXhIn7dM3zlGTk7413Osda4TV12EwyXxCDogY/ceX3JISIjV51p2CyN2xdPbdQxM+Mp2v2x8JCfigIBwqNzaWfEQOaiDylhCW6BFKrzhZ6UQqPRGIOBT167tPtTcXAYmTXW0nsmGoQMz66X28Hp/n6ACxJjmqSBw2xtt8xRCB/4hgOoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCBAMuV0KgvQd3R7cP3mkEExOgmsJDihm2dd+wbCfgA1CaN0YWfNAgKndmVyc2lvbgE=
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
