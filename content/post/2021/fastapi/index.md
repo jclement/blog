@@ -299,7 +299,7 @@ On DockerHub create a two new repositories.  One for `-backend` and one for `-fr
 
 ## Production Deployment
 
-On a new VM with Docker and `docker-compose` deployed, let's configure this to work for real (I'm using the domain `demo.zeos.ca` for this...)
+On a new VM with Docker and `docker-compose` deployed, let's configure this to work for real (I'm using the domain `demo.erraticbits.ca` for this...)
 
 Create `/docker/demo/docker-compose.yml` as:
 
@@ -338,7 +338,7 @@ We've replaced the *build* lines with *image* so that we're using the images on 
 Create `/docker/demo/Caddyfile` as:
 
 ```caddyfile
-demo.zeos.ca
+demo.erraticbits.ca
 
 handle_path /api/* {
 	reverse_proxy backend:8000 {
@@ -358,7 +358,7 @@ handle {
 If you are running at the top-level of the domain and want to redirect to `www`, it would look more like this:
 
 ```caddyfile
-www.zeos.ca {
+www.erraticbits.ca {
         root * /usr/share/caddy/
         file_server browse
 
@@ -377,8 +377,8 @@ www.zeos.ca {
         }
 }
 
-zeos.ca {
-        redir https://www.zeos.ca{uri}
+erraticbits.ca {
+        redir https://www.erraticbits.ca{uri}
 }
 ```
 

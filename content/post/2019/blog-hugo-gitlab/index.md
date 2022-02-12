@@ -89,17 +89,17 @@ sudo systemctl enable caddy.service
 
 ## Caddy Configuration
 
-I'm hosting content for my blog (zeos.ca), so I'm going to create a folder under `/var/www` for my domain (zeos.ca), and add some configuration to my `/etc/caddy/Caddyfile`.
+I'm hosting content for my blog (erraticbits.ca), so I'm going to create a folder under `/var/www` for my domain (erraticbits.ca), and add some configuration to my `/etc/caddy/Caddyfile`.
 
 ```
-mkdir /var/www/zeos.ca
+mkdir /var/www/erraticbits.ca
 ```
 
-Next, I need to add a virtual host for zeos.ca to my Caddyfile `/etc/caddy/Caddyfile`:
+Next, I need to add a virtual host for erraticbits.ca to my Caddyfile `/etc/caddy/Caddyfile`:
 
 ```
-zeos.ca {
-  root /var/www/zeos.ca
+erraticbits.ca {
+  root /var/www/erraticbits.ca
   gzip
   errors {
    404 404.html
@@ -107,15 +107,15 @@ zeos.ca {
 }
 ```
 
-I'd also like to redirect www.zeos.ca to zeos.ca, so I'll also add the following to `/etc/caddy/Caddyfile`.
+I'd also like to redirect www.erraticbits.ca to erraticbits.ca, so I'll also add the following to `/etc/caddy/Caddyfile`.
 
 ```
-www.zeos.ca {
-  redir https://zeos.ca{uri}
+www.erraticbits.ca {
+  redir https://erraticbits.ca{uri}
 }
 ```
 
-At this point, assuming DNS is correctly pointing at this machine, I can restart Caddyserver and it will automatically grab an SSL certificate for zeos.ca and www.zeos.ca from LetsEncrypt, and start serving the contents of `/var/www/zeos.ca` for requests to zeos.ca.  
+At this point, assuming DNS is correctly pointing at this machine, I can restart Caddyserver and it will automatically grab an SSL certificate for erraticbits.ca and www.erraticbits.ca from LetsEncrypt, and start serving the contents of `/var/www/erraticbits.ca` for requests to erraticbits.ca.  
 
 ```
 sudo systemctl restart caddy.service
@@ -124,26 +124,26 @@ sudo systemctl restart caddy.service
 
 ## Generating Deployment Keys
 
-The final steps required on the webserver machine are to set ourselves up for automated deployment by generating a new user which we'll use for deployment (`deploy_zeos`), and creating a new SSH keypair for our deployment process.
+The final steps required on the webserver machine are to set ourselves up for automated deployment by generating a new user which we'll use for deployment (`deploy_erraticbits`), and creating a new SSH keypair for our deployment process.
 
 ```
-sudo adduser --disabled-password deploy_zeos
+sudo adduser --disabled-password deploy_erraticbits
 ```
 
 Create a SSH keypair for our deployment keys (make sure not to enter a password!):
 
 ```
-ssh-keygen  -t ed25519 -f ~/deploy_zeos
+ssh-keygen  -t ed25519 -f ~/deploy_erraticbits
 ```
 
 Add the public key we just generated to the list of authorized keys `~/.ssh/authorized_keys`.
 
 ```
-sudo -u deploy_zeos mkdir ~/.ssh
-cat ~/deploy_zeos.pub | sudo -u deploy_zeos tee ~/.ssh/authorized_keys
+sudo -u deploy_erraticbits mkdir ~/.ssh
+cat ~/deploy_erraticbits.pub | sudo -u deploy_erraticbits tee ~/.ssh/authorized_keys
 ```
 
-Finally, copy the private contents of the private key (`~/deploy_zeos`) file somewhere safe.  We'll need those in a second when configuring Gitlab.
+Finally, copy the private contents of the private key (`~/deploy_erraticbits`) file somewhere safe.  We'll need those in a second when configuring Gitlab.
 
 It'll look something like this:
 ```
@@ -154,7 +154,7 @@ It'll look something like this:
 ```
 
 {{% warning %}}
-The private key `~/deploy_zeos` needs to be protected.  Anyone with that key can login to the `deploy_zeos` user on the webserver.  Once Gitlab is setup (below), this file should be deleted from the webserver.
+The private key `~/deploy_erraticbits` needs to be protected.  Anyone with that key can login to the `deploy_erraticbits` user on the webserver.  Once Gitlab is setup (below), this file should be deleted from the webserver.
 {{% /warning %}}
 
 # Setting up Gitlab CI/CD
@@ -169,8 +169,8 @@ We do this by adding two variables to the CI/CD configuration (`Settings > CI/CD
 
 | Variable Name | Variable Contents | State |
 |---|---|---|
-| SSH_PRIVATE_KEY | Contents of `~/deploy_zeos` from previous step | Protected |
-| SSH_KNOWN_HOSTS | SSH fingerprint of web server.  Output of `ssh-keyscan wilbur.zeos.ca`. | Not Protected |
+| SSH_PRIVATE_KEY | Contents of `~/deploy_erraticbits` from previous step | Protected |
+| SSH_KNOWN_HOSTS | SSH fingerprint of web server.  Output of `ssh-keyscan wilbur.erraticbits.ca`. | Not Protected |
 
 It should end up looking something like this:
 
@@ -214,14 +214,14 @@ deploy:
     - chmod 644 ~/.ssh/known_hosts
   environment:
     name: production
-    url: zeos.ca
+    url: erraticbits.ca
   script:
-    - rsync -hrvz --delete --exclude=_ -e "ssh" --progress public/ deploy_zeos@wilbur.zeos.ca:/var/www/zeos.ca
+    - rsync -hrvz --delete --exclude=_ -e "ssh" --progress public/ deploy_erraticbits@wilbur.erraticbits.ca:/var/www/erraticbits.ca
   only:
     - master
 ```
 
-Once this is checked in, new commits to the blog repository will automatically trigger a build and publish to the `/var/www/zeos.ca` folder on the webserver using the Gitlab CI/CD functionality. 
+Once this is checked in, new commits to the blog repository will automatically trigger a build and publish to the `/var/www/erraticbits.ca` folder on the webserver using the Gitlab CI/CD functionality. 
 
 You can see build history / monitor the pipelines under the `CI/CD > Pipelines` menu in the repository.  It'll show information about each build.  If the build fails, clicking on the failed step should allow you to see the log and troubleshoot the whole thing.
 
@@ -346,7 +346,7 @@ This will create `public/lunr.json` which contains the text content from all the
 
 ```json
 [{"title":"About me","href":"/about/","content":" My name is Jeff Clement I ride bikes and unicycles I make things usual
-ly out of wood I make software I love computer security and privacy Contact Information EMail jeff at zeos dot ca Wire j
+ly out of wood I make software I love computer security and privacy Contact Information EMail jeff at erraticbits dot ca Wire j
 fry fingerprints Threema TUKDSKM6 fingerprint cb8a1e3e2ea4e8d9905d44f049efb36a GnuPG 0x76B1A823FCC65FA3 E8FF 07F8 CC8B 9
 5..."}, ...]
 ```

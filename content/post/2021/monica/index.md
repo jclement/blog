@@ -42,12 +42,12 @@ services:
     environment:
       - APP_KEY=....
       - APP_ENV=production
-      - APP_URL=https://crm.zeos.ca
+      - APP_URL=https://crm.erraticbits.ca
       - DB_HOST=db
       - MAIL_DRIVER=smtp
-      - MAIL_HOST=box.zeos.ca
-      - MAIL_USERNAME=crm@zeos.ca
-      - MAIL_FROM_ADDRESS=crm@zeos.ca
+      - MAIL_HOST=box.erraticbits.ca
+      - MAIL_USERNAME=crm@erraticbits.ca
+      - MAIL_FROM_ADDRESS=crm@erraticbits.ca
       - MAIL_PASSWORD=....
       - MAIL_PORT=587
     volumes:
@@ -77,24 +77,24 @@ volumes:
 
 After starting this up `docker-compose up -d`, I now have Monica listening on 127.0.0.1:18102 on my server.
 
-Next, I add a new Virtual Host (`/etc/nginx/sites-available/crm.zeos.ca.config` and symlink that to `/etc/nginx/sites-enabled/crm.zeos.ca.config`) on my local NGINX server to redirect traffic from "crm.zeos.ca" to "127.0.0.1:18102" (using certbot to fetch an SSL certificate for this thing).
+Next, I add a new Virtual Host (`/etc/nginx/sites-available/crm.erraticbits.ca.config` and symlink that to `/etc/nginx/sites-enabled/crm.erraticbits.ca.config`) on my local NGINX server to redirect traffic from "crm.erraticbits.ca" to "127.0.0.1:18102" (using certbot to fetch an SSL certificate for this thing).
 
 ```
 server {
   listen 80;
   listen [::]:80;
-  server_name crm.zeos.ca;
-  return 301 https://crm.zeos.ca$request_uri;
+  server_name crm.erraticbits.ca;
+  return 301 https://crm.erraticbits.ca$request_uri;
 }
 
 server {
-  server_name crm.zeos.ca;
-  root /var/www/crm.zeos.ca;
+  server_name crm.erraticbits.ca;
+  root /var/www/crm.erraticbits.ca;
 
   listen [::]:443 ssl; # managed by Certbot
   listen 443 ssl; # managed by Certbot
-  ssl_certificate /etc/letsencrypt/live/crm.zeos.ca/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/crm.zeos.ca/privkey.pem; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/crm.erraticbits.ca/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/crm.erraticbits.ca/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 

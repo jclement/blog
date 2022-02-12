@@ -1,8 +1,8 @@
-baseurl = "https://www.zeos.ca"
+baseurl = "https://www.erraticbits.ca"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
-title = "zeos.ca"
+title = "erraticbits"
 canonifyurls  = true
 
 DefaultContentLanguage = "en"

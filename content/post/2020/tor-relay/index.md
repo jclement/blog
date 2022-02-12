@@ -46,11 +46,11 @@ Here is my sample `/etc/tor/torrc` file.
 Log notice file /var/log/tor/notices.log
 ORPort 9001
 DirPort 9030 # what port to advertise for directory connections
-Address wilbur.zeos.ca # hostname for this server
-Nickname zeos # nickname for this server in directory
+Address wilbur.erraticbits.ca # hostname for this server
+Nickname erraticbits # nickname for this server in directory
 RelayBandwidthRate 400 KBytes  # Throttle traffic to 400KB/s (approx 1TB / mo)
 RelayBandwidthBurst 1000 KBytes # But allow bursts up to 1000KB 
-ContactInfo 0x063B48690F1D6F12 Tor Admin <tor@zeos.ca>
+ContactInfo 0x063B48690F1D6F12 Tor Admin <tor@erraticbits.ca>
 ExitRelay 0
 ```
 

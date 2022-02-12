@@ -8,7 +8,7 @@ tags:
 
 This post, as most of my posts tend to be, is my attempt at documenting how I set something up so that future Jeff can do it again, or troubleshoot it when it inevitable breaks at some point in the, hopefully, distant future.
 
-On my various web servers, I've been moving more and more of my content into Docker containers to, hopefully, aid in isolation (both security and unintended interactions/interdependencies) and maintainability.  As such, I've decided to use [Traefik](https://traefik.io) to proxy requests through to the underlying containers, and to handle all the TLS stuff (getting certificates from Let's Encrypt, A+ on both [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html?d=www.zeos.ca&latest) and [SecureHeaders](https://securityheaders.com/?q=www.zeos.ca&followRedirects=on)).
+On my various web servers, I've been moving more and more of my content into Docker containers to, hopefully, aid in isolation (both security and unintended interactions/interdependencies) and maintainability.  As such, I've decided to use [Traefik](https://traefik.io) to proxy requests through to the underlying containers, and to handle all the TLS stuff (getting certificates from Let's Encrypt, A+ on both [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html?d=www.erraticbits.ca&latest) and [SecureHeaders](https://securityheaders.com/?q=www.erraticbits.ca&followRedirects=on)).
 
 # Traefik Setup
 
