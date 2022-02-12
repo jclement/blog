@@ -3,7 +3,7 @@ title: About me
 comments: false
 ---
 
-{{< gallery dir="/gallery/me" caption-effect="fade" />}}
+{{< gallery dir="/gallery/me" caption-effect="fade" >}}
 
 My name is Jeff Clement.  
 
