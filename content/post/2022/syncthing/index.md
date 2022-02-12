@@ -1,7 +1,6 @@
 ---
 title: "Moving my files in-house"
 date: 2022-01-15
-showToc: true
 tags: 
   - privacy
   - syncthing
