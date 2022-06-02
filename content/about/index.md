@@ -67,5 +67,10 @@ My name is Jeff Clement.
 <td><a href="https://keybase.io/jsc">jsc</a></td>
 </tr>
 
+<tr>
+<th>Keyoxide:</th>
+<td><a href="https://keyoxide.org/D4F80EF04E164D46393BD7C580D8850D127E6070">D4F80EF04E164D46393BD7C580D8850D127E6070</a></td>
+</tr>
+
 </tbody>
 </table>
