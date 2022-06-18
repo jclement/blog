@@ -1,0 +1,45 @@
+---
+kind: pipeline
+type: docker
+name: default
+trigger:
+  branch:
+    - master
+
+steps:
+- name: Version check
+  image: jguyomard/hugo-builder
+  commands:
+  - echo "Checking Hugo version."
+  - hugo version
+
+- name: Build Index
+  image: node:lts-alpine
+  commands:
+  - npm install --location=global grunt 
+  - npm install grunt string yamljs
+  - grunt lunr-index
+  - pwd
+
+- name: Build 
+  image: jguyomard/hugo-builder
+  commands:
+  - hugo 
+  - minify -r -o public/ public/
+
+- name: Upload 
+  image: jguyomard/hugo-builder
+  commands:
+  - eval `ssh-agent -s`
+  - echo "$SSH_KEY" | ssh-add -
+  - mkdir -p ~/.ssh
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  - rsync -rv -e "ssh -p 22" public/ $SSH_USER@$SSH_HOST:root --checksum
+  environment:
+    SSH_KEY:
+      from_secret: SSH_KEY
+    SSH_USER:
+      from_secret: SSH_USER
+    SSH_HOST:
+      from_secret: SSH_HOST
+      
