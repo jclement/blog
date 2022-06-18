@@ -19,7 +19,7 @@ steps:
   - npm install --location=global grunt 
   - npm install grunt string yamljs
   - grunt lunr-index
-  - pw
+  - pwd
 
 - name: Build 
   image: jguyomard/hugo-builder
