@@ -20,7 +20,7 @@ steps:
   - minify -r -o /drone/src/build /drone/src/build
 
 - name: Build Index
-  image: node:lts-alpin
+  image: node:lts-alpine
   commands:
   - cd /drom/src/build
   - npm install grunt string yamljs
