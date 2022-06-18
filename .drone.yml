@@ -13,19 +13,18 @@ steps:
   - echo "Checking Hugo version."
   - hugo version
 
+- name: Build Index
+  image: node:lts-alpine
+  commands:
+  - npm install --location=global grunt 
+  - npm install grunt string yamljs
+  - grunt lunr-index
+
 - name: Build 
   image: jguyomard/hugo-builder
   commands:
   - hugo --destination /drone/src/build
   - minify -r -o /drone/src/build /drone/src/build
-
-- name: Build Index
-  image: node:lts-alpine
-  commands:
-  - cd /drone/src/build
-  - npm install --location=global grunt 
-  - npm install grunt string yamljs
-  - grunt lunr-index
 
 - name: Upload 
   image: jguyomard/hugo-builder
