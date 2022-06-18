@@ -26,7 +26,12 @@ steps:
   - echo "$SSH_KEY" | ssh-add -
   - mkdir -p ~/.ssh
   - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-  - rsync -rv -e "ssh -p 22" /drone/src/build/ deploy-erratic@192.168.20.11:root --checksum
+  - rsync -rv -e "ssh -p 22" /drone/src/build/ $SSH_USER@$SSH_HOST:root --checksum
   environment:
     SSH_KEY:
       from_secret: SSH_KEY
+    SSH_USER:
+      from_secret: SSH_USER
+    SSH_HOST:
+      from_secret: SSH_HOST
+      
