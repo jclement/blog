@@ -23,7 +23,7 @@ steps:
   image: node:lts-alpine
   commands:
   - cd /drone/src/build
-  - npm install grunt string yamljs
+  - npm install -g grunt string yamljs
   - grunt lunr-index
 
 - name: Upload 
