@@ -25,7 +25,7 @@ steps:
   image: jguyomard/hugo-builder
   commands:
   - hugo 
-  - minify -r -o . .
+  - minify -r -o public/ public/
 
 - name: Upload 
   image: jguyomard/hugo-builder
