@@ -1,4 +1,4 @@
-baseurl = "https://www.erraticbits.ca"
+baseurl = "https://blog-dev.erraticbits.ca"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
