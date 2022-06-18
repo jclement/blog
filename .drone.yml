@@ -22,7 +22,7 @@ steps:
 - name: Build Index
   image: node:lts-alpine
   commands:
-  - cd /drom/src/build
+  - cd /drone/src/build
   - npm install grunt string yamljs
   - grunt lunr-index
 
