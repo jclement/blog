@@ -19,6 +19,13 @@ steps:
   - hugo --destination /drone/src/build
   - minify -r -o /drone/src/build /drone/src/build
 
+- name: Build Index
+  image: node:lts-alpin
+  commands:
+  - cd /drom/src/build
+  - npm install grunt string yamljs
+  - grunt lunr-index
+
 - name: Upload 
   image: jguyomard/hugo-builder
   commands:
