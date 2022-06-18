@@ -16,6 +16,7 @@ steps:
 - name: Build Index
   image: node:lts-alpine
   commands:
+  - npm install --location=global grunt 
   - npm install grunt string yamljs
   - grunt lunr-index
 
