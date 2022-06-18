@@ -1,0 +1,32 @@
+---
+kind: pipeline
+type: docker
+name: default
+trigger:
+  branch:
+    - master
+
+steps:
+- name: Version check
+  image: jguyomard/hugo-builder
+  commands:
+  - echo "Checking Hugo version."
+  - hugo version
+
+- name: Build 
+  image: jguyomard/hugo-builder
+  commands:
+  - hugo --destination /drone/src/build
+  - minify -r -o /drone/src/build /drone/src/build
+
+- name: Upload 
+  image: jguyomard/hugo-builder
+  commands:
+  - eval `ssh-agent -s`
+  - echo "$SSH_KEY" | ssh-add -
+  - mkdir -p ~/.ssh
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  - rsync -rv -e "ssh -p 22" /drone/src/build/ deploy-erratic@192.168.20.11:/var/www/ --checksum
+  environment:
+    SSH_KEY:
+      from_secret: SSH_KEY
