@@ -12,6 +12,7 @@ steps:
   image: alpine:latest
   commands:
   - apk add hugo
+  - apk add golang
   - hugo 
   - minify -r -o public/ public/
 
