@@ -4,6 +4,7 @@ date: 2019-09-02
 comments: true
 tags: [server, crypto]
 toc: true
+categories: ["tutorial"]
 ---
 
 I'm setting up a new Ubuntu 18.04 server and wanted the drives to be encrypted.  Since the machine is headless in my basement, however, entering a password on boot is annoying.

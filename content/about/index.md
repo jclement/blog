@@ -1,9 +1,11 @@
 ---
 title: About me
 comments: false
+showReadingTime: false
+showDate: false
 ---
 
-{{< gallery dir="/gallery/me" caption-effect="fade" />}}
+![Me](img/author.png)
 
 My name is Jeff Clement.  
 
@@ -33,17 +35,15 @@ My name is Jeff Clement.
     <a href="/gpg/transition_20150323.txt">transition statement 2015-03-23</a></td>
 </tr>
 
-<!--
 <tr>
 <th>LinkedIn:</th>
-<td><a href="http://www.linkedin.com/profile/view?id=6394933">Jeff Clement</a></td>
+<td><a href="https://www.linkedin.com/profile/view?id=6394933">Jeff Clement</a></td>
 </tr>
 
 <tr>
 <th>Github:</th>
 <td><a href="https://github.com/jclement">jclement</a></td>
 </tr>
--->
 
 <tr>
 <th>Mastodon:</th>

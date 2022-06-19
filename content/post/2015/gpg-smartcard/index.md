@@ -2,8 +2,9 @@
 title: Using GPG with Smart Cards
 date: 2015-04-14
 tags: [yubikey]
+categories: ["tutorial"]
 comments: true
-showToc: true
+showTableOfContents: true
 ---
 
 I use SSH daily (with SSH keys) and would like to use GPG routinely (if only people I conversed with would use it) but key management is always a problem.  I don't like leaving secret keys on my work computer, work laptop, various home computers, etc.  To mitigate this problem I used a strong password on each of these keys which makes actually using them annoying.
@@ -14,8 +15,10 @@ Smart cards let you store the private key on a tamper resistant piece of hardwar
 
 Unfortunately, despite existing for over a decade, it's been difficult to find comprehensive information about setting up and using smart cards, for use with GPG and SSH, under Linux, Windows and OSX.
 
-<div class="note">This article is heavily based on "[Offline GnuPG Master Key and Subkeys on YubiKey NEO Smartcard](http://blog.josefsson.org/2014/06/23/offline-gnupg-master-key-and-subkeys-on-yubikey-neo-smartcard/)" by
-Simon Josefsson.  Much like the reason Simon wrote his post, this article was primarily created to document my setup for my future reference.</div>
+{{<note>}}
+This article is heavily based on "[Offline GnuPG Master Key and Subkeys on YubiKey NEO Smartcard](http://blog.josefsson.org/2014/06/23/offline-gnupg-master-key-and-subkeys-on-yubikey-neo-smartcard/)" by
+Simon Josefsson.  Much like the reason Simon wrote his post, this article was primarily created to document my setup for my future reference.
+{{</note>}}
 
 Roughly:
 
@@ -45,7 +48,9 @@ Use the [Yubikey Neo Manager](https://developers.yubico.com/yubikey-neo-manager/
 
 I did this on Windows because it was convenient but there are packages for OSX and Linux too.  There is also the *ykpersonalize* CLI tool that can do this.
 
-<div class="danger">Use the Yubikey Neo Manager to verify that you have the OpenPGP applet &gt;= 1.0.10 due to a [bug in previous versions of the app on the Yubikey Neo](https://developers.yubico.com/ykneo-openpgp/SecurityAdvisory%202015-04-14.html) that allows a bypass of the PIN when performing cryptographic operations.</div>
+{{<alert>}}
+Use the Yubikey Neo Manager to verify that you have the OpenPGP applet &gt;= 1.0.10 due to a [bug in previous versions of the app on the Yubikey Neo](https://developers.yubico.com/ykneo-openpgp/SecurityAdvisory%202015-04-14.html) that allows a bypass of the PIN when performing cryptographic operations.
+{{</alert>}}
 
 ![Yubikey Neo Manager](yubikey-mode.png)
 
@@ -64,15 +69,17 @@ Install additional dependencies on the machine:
 $ sudo apt-get install haveged gnupg2 gnupg-agent libpth20 pinentry-curses libccid pcscd scdaemon libksba8 paperkey opensc
 ```
 
-<div class="warning"><p>To work with the Yubikey you must have gnupg2 &gt;= 2.0.22 and scdaemon &gt;= 2.0.22</p><p> If you are using Debian Wheezy you can install updated version of gnupg2 and scdaemon from backports with: <pre>
+{{<alert>}}
+To work with the Yubikey you must have gnupg2 &gt;= 2.0.22 and scdaemon &gt;= 2.0.22</p><p> If you are using Debian Wheezy you can install updated version of gnupg2 and scdaemon from backports with: <pre>
 $ echo "deb http://http.debian.net/debian wheezy-backports main" >> /etc/apt/sources.list
 $ apt-get update
 $ apt-get -t wheezy-backports install gnugp2 scdaemon
-</pre></div>
+</pre>
+{{</alert>}}
 
-<div class="note">haveged is an entropy harvesting daemon that is installed to help improve the entropy in the entropy pool and speed up key generation.</div>
+**haveged** is an entropy harvesting daemon that is installed to help improve the entropy in the entropy pool and speed up key generation.
 
-<div class="note">paperkey is a package for exporting private key material to a text file for paper backup.</div>
+**paperkey** is a package for exporting private key material to a text file for paper backup.
 
 Configure GnuPG with safer defaults and stronger default ciphers (from [riseup.net](https://help.riseup.net/en/security/message-security/openpgp/best-practices)):
 
@@ -94,9 +101,13 @@ default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB
 
 My [gpg.conf](https://github.com/jclement/dotfiles/blob/master/other/gpg.conf) file is on github.
 
-<div class="danger">Unplug your network cable now and verify that machine no longer has network connectivity.</div>
+{{<alert>}}
+Unplug your network cable now and verify that machine no longer has network connectivity.
+{{</alert>}}
 
-<div class="note">Most of the rest of this guide should be run as root.  The default permissions on the Yubikey device under the Debian LiveCD don't allow non-root users to interact with it.  We could fix it but this is a LiveCD and it won't survive the reboot so life is simpler just doing the key generation and key-to-card operations as root.</div>
+{{<note>}}
+Most of the rest of this guide should be run as root.  The default permissions on the Yubikey device under the Debian LiveCD don't allow non-root users to interact with it.  We could fix it but this is a LiveCD and it won't survive the reboot so life is simpler just doing the key generation and key-to-card operations as root.
+{{</note>}}
 
 ## Generating the GPG keys
 
@@ -517,13 +528,13 @@ $ gpg2 -a --export-secret-key  0x2896DB4A0E427716 >> /media/BACKUP/2896DB4A0E427
 $ gpg2 -a --export-secret-subkeys  0x2896DB4A0E427716 >> /media/BACKUP/2896DB4A0E427716.sub.key
 ```
 
-<div class="danger">
+{{<alert>}}
 Be absolutely sure you have a backup of your GPG keys and revocation certificate on a separate USB stick before you continue.  Remember this is a LiveCD and any work you do on this environment is erased upon reboot.  This backup is necessary for several reasons:
 <ol>
  <li>If your smart card is lost or damaged you can create a new one and (optionally) revoke the sub-keys that were in use on the previous card.
  <li>The sub-keys on the smart card are limited and can not sign other keys, change your expiry date, or add UIDs to your existing key
 </ol>
-</div>
+{{</alert>}}
 
 
 ## Configuring the smart card
@@ -534,11 +545,15 @@ Use <kbd>gpg2 --card-edit</kbd> to edit the user information and PINs for the sm
 * **Admin PIN** - this PIN is required to make changes to the smart card and is not used day-to-day
 * **URL** - this is the location of your public key file and can be used my GnuPG to download your key in new installations.  I really like <a href="https://keybase.io">keybase.io</a> so I've used that.
 
-<div class="note">My environment uses the graphical PIN entry program so you don't see PIN prompts below but you will be prompted after many of the operations for a PIN.</div>
+{{<note>}}
+My environment uses the graphical PIN entry program so you don't see PIN prompts below but you will be prompted after many of the operations for a PIN.
+{{</note>}}
 
-<div class="note">The default admin PIN is usually '12345678' and the default PIN is usually '123456'.</div>
+{{<note>}}
+The default admin PIN is usually '12345678' and the default PIN is usually '123456'.
+{{</note>}}
 
-<div class="warning">
+{{<alert>}}
 If the machine you are using has a built-in Smartcard reader you may receive "<b>Card not present</b>" errors.  If this happens you may need to change the default reader for scdaemon to your Yubikey.  Find a list of ports with:
 
 <pre>
@@ -557,7 +572,7 @@ reader-port 1050:0116:X:0
 </pre>
 
 Alternatively, if you aren't using the built-in Smartcard reader, you can also just deactivate it in the OS.
-</div>
+{{</alert>}}
 
 ```
 $ gpg2 --card-edit
@@ -836,11 +851,13 @@ The smart card can now be used for encryption, signing and authentication (SSH).
 $ sudo apt-get install gnupg2 gnupg-agent libpth20 pinentry-curses libccid pcscd scdaemon libksba8
 ```
 
-<div class="warning"><p>To work with the Yubikey you must have gnupg2 &gt;= 2.0.22 and scdaemon &gt;= 2.0.22</p><p> If you are using Debian Wheezy you can install updated version of gnupg2 and scdaemon from backports with: <pre>
+{{<alert>}}
+To work with the Yubikey you must have gnupg2 &gt;= 2.0.22 and scdaemon &gt;= 2.0.22</p><p> If you are using Debian Wheezy you can install updated version of gnupg2 and scdaemon from backports with: <pre>
 $ echo "deb http://http.debian.net/debian wheezy-backports main" >> /etc/apt/sources.list
 $ apt-get update
 $ apt-get -t wheezy-backports install gnugp2 scdaemon
-</pre></div>
+</pre>
+{{</alert>}}
 
 ### Configuration
 
@@ -866,7 +883,9 @@ $ gpg2 --card-status
 
 Add the following to your *.bashrc* or *.zshrc* to pull in the gpg-agent environment variables when you open new terminals.  This is required for SSH from the CLI to work properly (due to gnome-keyring issues).
 
-<div class="note">The path to the .gpg-agent-info may vary.  On my Ubuntu system it's ~/.gnupg/gpg-agent-info-$(HOSTNAME).  I modified /etc/X11/Xsession.d/90gpg-agent and changed the PID_FILE path to be consistent between my machines in ~/.gpg-agent-info.</div>
+{{<note>}}
+The path to the .gpg-agent-info may vary.  On my Ubuntu system it's ~/.gnupg/gpg-agent-info-$(HOSTNAME).  I modified /etc/X11/Xsession.d/90gpg-agent and changed the PID_FILE path to be consistent between my machines in ~/.gpg-agent-info.
+{{</note>}}
 
 
 ```bash
@@ -898,7 +917,9 @@ The way I've managed to resolve it is:
 
 Wrap /usr/bin/gnome-keyring-daemon to turn off gnome-keyring GPG and SSH (as root)
 
-<div class="warning">This obviously seems like a hack.  I'd appreciate any ideas on how better to resolve this.</div>
+{{<alert>}}
+This obviously seems like a hack.  I'd appreciate any ideas on how better to resolve this.
+{{</alert>}}
 
 ```
 $ mv /usr/bin/gnome-keyring-daemon /usr/bin/gnome-keyring-daemon-wrapper

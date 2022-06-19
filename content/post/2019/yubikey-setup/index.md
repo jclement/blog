@@ -3,6 +3,7 @@ title: Yubikey Setup
 date: 2019-10-05
 comments: true
 tags: [yubikey, raspberrypi]
+categories: ["tutorial"]
 showToc: true
 draft: true
 ---

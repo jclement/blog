@@ -3,7 +3,6 @@ title: QubesOS Presentation
 date: 2017-03-02
 comments: true
 tags: [qubesos, presentation]
-toc: true
 ---
 
 I'm a huge fan of QubesOS.  Here are some slides from an internal company presentation trying to inflict QubesOS on my coworkers.

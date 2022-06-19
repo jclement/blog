@@ -1,13 +1,17 @@
 ---
 title: "Moving my files in-house"
 date: 2022-01-15
-tags: 
-  - privacy
-  - syncthing
-  - self-hosting
+showTableOfContents: true
+draft: false
+categories: ["tutorial"]
+slug: "advanced-customisation"
+tags: ["privacy", "self-hosting"]
+categories: ["tutorial"]
 ---
 
 Every six months or so, when the position of the moon is just right, I flip-flop on the privacy/self-hosted vs. just-let-Google-handle-it issue.  Today, I've flopped toward privacy and self-hosting.
+
+<!--more-->
 
 A couple of days ago, I was using Gmail for the majority of my email and Google Drive for syncing files between my various machines (Windows desktop, Windows laptop, MacbookPro, Chromebook, and iPhone).
 
@@ -61,7 +65,7 @@ I am also running SyncThing on one of my cloud-hosted servers (alpha, in the dia
 
 The whole picture looks like this:
 
-```mermaid
+{{< mermaid >}}
 flowchart LR
  subgraph LAN
  anorak<-->mcsyncthing
@@ -73,11 +77,11 @@ flowchart LR
  mcsyncthing--encrypted-->alpha
  end
  iphone--ssh-->mcsyncthing
-```
+{{< /mermaid >}}
 
 Although, it's actually more like this because the individual workstations will sync between themselves too.
 
-```mermaid
+{{< mermaid >}}
 flowchart LR
  subgraph LAN
  anorak<-->mcsyncthing
@@ -92,7 +96,7 @@ flowchart LR
  mcsyncthing--encrypted-->alpha
  end
  iphone--ssh-->mcsyncthing
- ```
+{{< /mermaid >}}
 
 Quick screenshot of the management UI for SyncThing on *mcsyncthing* that I connect to via. an SSH Tunnel.
  

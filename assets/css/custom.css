@@ -1,0 +1,7 @@
+.max-w-prose, .prose {
+    max-width: 100%;
+}
+
+#TableOfContents {
+    min-width: 300px;
+}

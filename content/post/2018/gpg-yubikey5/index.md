@@ -3,6 +3,7 @@ title: GPG/SSH with the YubiKey 5
 date: 2018-10-07
 comments: true
 tags: [yubikey, crypto]
+categories: ["tutorial"]
 showToc: true
 ---
 
@@ -108,9 +109,9 @@ At this point, we no longer need Internet access so unplug the cable or disconne
 
 ## Generating GPG Keys
 
-{{% warning %}}
+{{<alert>}}
 Do not proceed until you have disconnected your machine from the Internet.
-{{% /warning %}}
+{{</alert>}}
 
 Here is a sample set of keys that I’m generating. The master key is  reserved for key signing and certifying the sub-keys. There are distinct  sub-keys for signing, encryption and authentication (SSH).  Each of these separate sub-keys will be loaded into the matching slot on the YubiKey OpenPGP module.
 

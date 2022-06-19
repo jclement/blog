@@ -3,7 +3,7 @@ title: Blog with Hugo, Gitlab CD, and Caddy
 date: 2019-09-20
 comments: true
 tags: [server]
-showToc: true
+showTableOfContents: true
 ---
 
 This post is an overview on how I setup this site (built using [Hugo](https://gohugo.io)) to be automatically deployed to my [Caddy](https://caddyserver.com/) server using [Gitlab's](https://gitlab.com) continuous deployment.
@@ -153,9 +153,9 @@ It'll look something like this:
 -----END OPENSSH PRIVATE KEY-----
 ```
 
-{{% warning %}}
+{{<alert>}}
 The private key `~/deploy_erraticbits` needs to be protected.  Anyone with that key can login to the `deploy_erraticbits` user on the webserver.  Once Gitlab is setup (below), this file should be deleted from the webserver.
-{{% /warning %}}
+{{</alert>}}
 
 # Setting up Gitlab CI/CD
 

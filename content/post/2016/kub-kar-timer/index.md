@@ -2,8 +2,9 @@
 title: Kub Kar Timer
 date: 2016-02-14
 template: article.jade
-comments: true
-toc: true
+showTableOfContents: true
+tags:
+ - arduino
 ---
 
 My boys are in Boy Scouts and the annual Kub Kar races are a fun part of the program.   Our group has a couple older wooden tracks and I wanted to add a timer mechanism to them that would time and rank each car for each race.
@@ -36,7 +37,7 @@ The premise for my final solution was to dangle a conductive "wire" (lamp pull c
 
 I ended up drilling a 1/2" hole in the underside of the timing platform and insert a 1" section of 1/2" copper pipe.  Directly through the center I dangled a chunk of steel lamp pull-chain.  The copper tubes are all tied to ground and the chains are tied to the Arduino's digital IO pins (with internal pull-up resistors enabled).
 
-<p class="note">With this design it's important that the chain in each lane is a few links too long and dangles on the lane.  This prevents the chain from swinging back and forth for ages and allows you to get on with the next race much faster.</p>
+{{<note>}}With this design it's important that the chain in each lane is a few links too long and dangles on the lane.  This prevents the chain from swinging back and forth for ages and allows you to get on with the next race much faster.{{</note>}}
 
 For actually triggering the race I ran cables from the timer to the starting gate and then used some Allround as an improvised switch that was closed when the gate was up.  As soon as the gate drops the timer starts.
 
@@ -48,7 +49,7 @@ I opted for a small 20x4 LCD I2C display because that's what I had handy.
 
 ## The Software
 
-The source code for this entire project is up on [Bitbucket](https://bitbucket.org/jclement/kub-kar-timer).
+The source code for this entire project is [here](https://git.erraticbits.ca/jclement/kub-kar-timer).
 
 ## The Build
 

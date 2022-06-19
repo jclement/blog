@@ -3,6 +3,7 @@ title: Wireguard Access Server
 date: 2019-09-20
 comments: true
 tags: [server, wireguard, crypto]
+categories: ["tutorial"]
 showToc: true
 ---
 

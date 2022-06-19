@@ -1,10 +1,11 @@
 ---
-title: "Adventures with Golang, WebSockets, Create-React-App and NGINX"
+title: "Golang, WebSockets & React"
 date: 2020-04-18
 tags: 
   - golang
   - react
   - nginx
+categories: ["tutorial"]
 ---
 
 As part of my COVID friendly game project, [werdz.ca](https://werdz.ca), I've been working with [GoLang](https://golang.org), [Create-React-App](https://create-react-app.dev), WebSockets and NGINX (for production).  Some of it has been "an adventure".
@@ -67,9 +68,9 @@ and then add it to my Router
 app.router.HandleFunc("/api/game/ws", app.apiGameWs)
 ```
 
-{{% note %}}
+{{<note>}}
 Throughout this document, let's assume that my backend server binds to `localhost:8100`.
-{{% /note %}}
+{{</note>}}
 
 The one part I never did figure out was how to detect a client connection closing in Go (closing the browser, for example).  I'd like to be able to flag players as in-active when their connection closes so that they don't hold up the game play.  I've tried a variety of things and eventually settled on a super cheesy client-side ping over HTTP (rather than the WebSocket).  
 
@@ -120,9 +121,9 @@ module.exports = app => {
 
 Now, you may find yourself thinking, like I did, "Hey, I'm a Typescript app so I'll just create this as `setupProxy.ts`".  Don't do it.  This also, despite the documentation suggestion it should be fine, does [not work](https://github.com/facebook/create-react-app/issues/6794).
 
-{{% warning %}}
+{{<alert>}}
 One last gotcha that had me stumped for a while.  You need to remove the `proxy` property from `package.json` or Create-React-App will just ignore `setupProxy.js`.
-{{% /warning %}}
+{{</alert>}}
 
 
 # NGINX Proxy

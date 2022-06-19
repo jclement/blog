@@ -3,6 +3,7 @@ title: NGINX Semi-private Site
 date: 2018-12-20
 comments: true
 tags: [server]
+categories: ["tutorial"]
 toc: false
 ---
 

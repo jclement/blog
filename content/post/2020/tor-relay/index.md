@@ -34,9 +34,9 @@ $ apt install nyx tor deb.torproject.org-keyring
 
 Once the software is installed, the Tor service is configured via. `/etc/tor/torrc`.
 
-{{% warning %}}
+{{<alert>}}
 Tor relays can be configured as *exit nodes*.  Exit nodes are the final hop on the Tor network before your traffic reenters the normal Internet.  Running an Exit node can be dangerous because a lot of sketchy stuff happens on the Tor network and I'd rather not be the one that site operators come back to as the source for that sketchy stuff hitting their server.  Adding `ExitRelay 0` to the `torrc` ensures that my Tor relay is not an exit node.
-{{% /warning %}}
+{{</alert>}}
 
 My bandwidth cap is 1TB / month which, if my math is correct, gives me about 400,000 Bytes/sec sustained.  Outside of Tor, the traffic to this server per month is negligible. 
 
