@@ -7,16 +7,11 @@ trigger:
     - master
 
 steps:
-- name: Version check
-  image: jguyomard/hugo-builder
-  commands:
-  - echo "Checking Hugo version."
-  - hugo version
 
 - name: Build 
-  image: jguyomard/hugo-builder
+  image: alpine:latest
   commands:
-  - hugo mod get
+  - apk add hugo
   - hugo 
   - minify -r -o public/ public/
 
