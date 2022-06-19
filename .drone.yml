@@ -11,7 +11,7 @@ steps:
 - name: Build 
   image: golang:alpine
   commands:
-  - apk add hugo git
+  - apk add hugo git minify
   - hugo 
   - minify -r -o public/ public/
 
