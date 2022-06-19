@@ -9,10 +9,9 @@ trigger:
 steps:
 
 - name: Build 
-  image: alpine:latest
+  image: golang:alpine
   commands:
   - apk add hugo
-  - apk add golang
   - hugo 
   - minify -r -o public/ public/
 
