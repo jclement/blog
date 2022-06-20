@@ -93,11 +93,11 @@ Once it's up and running, I can visit `https://ackee.erraticbits.ca` and login w
 
 Adding analytics to the site is trivial.  Just click "Settings" and "New Domain".  
 
-![Screenshot](create.png)
+{{<figure src="create.png" href="create.png">}}
 
 Once the new domain has been added, click on it and copy the "Embed Code" and paste that into your webpage template.
 
-![Screenshot](code.png)
+{{<figure src="code.png" href="code.png">}}
 
 That's it.  The only problematic part for me was getting the CORS headers configured correctly.
 
