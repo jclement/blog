@@ -3,6 +3,7 @@ title: About me
 comments: false
 showReadingTime: false
 showDate: false
+showPagination: false
 ---
 
 ![Me](img/author.png)
