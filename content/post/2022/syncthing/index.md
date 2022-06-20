@@ -4,9 +4,7 @@ date: 2022-01-15
 showTableOfContents: true
 draft: false
 categories: ["tutorial"]
-slug: "advanced-customisation"
 tags: ["privacy", "self-hosting"]
-categories: ["tutorial"]
 ---
 
 Every six months or so, when the position of the moon is just right, I flip-flop on the privacy/self-hosted vs. just-let-Google-handle-it issue.  Today, I've flopped toward privacy and self-hosting.
