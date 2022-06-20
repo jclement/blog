@@ -1,1 +1,16 @@
 <script async src="https://ackee.erraticbits.ca/tracker.js" data-ackee-server="https://ackee.erraticbits.ca" data-ackee-domain-id="73c2f07b-567a-44e7-996f-8410b1b65d41"></script>
+
+<script src="/jquery.min.js"></script>
+
+<script>
+    $(function() {
+        $("a").each(function(_, el) {
+            var addr = $(el).attr("href");
+            if (addr.startsWith("mailto:")) {
+              addr = addr.replace("%20at%20","@").replaceAll("%20dot%20", ".");
+              $(el).find(".mail-addr").text(addr.substr(7));
+              $(el).attr("href", addr);
+            }
+        });
+    });
+</script>    
