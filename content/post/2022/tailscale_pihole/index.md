@@ -1,5 +1,5 @@
 ---
-title: "Tailscale Pihole Setup"
+title: "Tailscale Pi-hole Setup"
 date: 2022-08-19
 showTableOfContents: true
 draft: false
