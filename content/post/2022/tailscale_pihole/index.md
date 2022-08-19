@@ -138,3 +138,7 @@ And you can see that failure in Pi-hole's Query Log.
 {{<figure src="fail.png" default="true">}}
 
 That's it.  
+
+{{<note>}}
+One last note.  If the host machine is also attached to the tailnet, make sure it's started up with the `--accept-dns=false` parameter otherwise you'll run into issues starting the Pi-hole's tailscale container on that machine.
+{{</note>}}
