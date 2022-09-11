@@ -394,3 +394,5 @@ The Cloudflare Tunnel is unbelievably slick, but my Tailscale setup is almost as
 2. Certificates / TLS termination happens on my computers
 3. I can modify my Tailnet to redirect `seafile.domain.com` to the Tailscale machine directly and avoid bouncing through the VPS for machines on my Tailnet
 4. I don't have to move my domain to be hosted on Cloudflare.
+
+The only downside of the DIY Tailscale approach that I've found so far is that, because the SNI Proxy is just blindly forwarding encrypted traffic, it doesn't have an opportunity to add `X-Forwarded-For` type headers, so the IP address that Seafile sees is always the SNI Proxy Tailnet address.
