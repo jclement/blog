@@ -30,10 +30,10 @@
   url = "https://git.erraticbits.ca/jclement"
   weight = 50
 
-[[main]]
-  name = "Photos"
-  url = "https://photos.erraticbits.ca/"
-  weight = 55
+#[[main]]
+#  name = "Photos"
+#  url = "https://photos.erraticbits.ca/"
+#  weight = 55
 
 #[[main]]
 #  name = "Categories"
