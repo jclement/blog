@@ -51,6 +51,11 @@ My name is Jeff Clement.
 <td><a href="https://erratic.cc/@OneWheelGeek">OneWheelGeek@erratic.cc</a></td>
 </tr>
 
+<tr>
+<th>Telegram:</th>
+<td><a href="https://t.me/OneWheelGeek">OneWheelGeek</a></td>
+</tr>
+
 <!--
 <tr>
 <th>Twitter:</th>
