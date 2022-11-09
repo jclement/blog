@@ -51,10 +51,12 @@ My name is Jeff Clement.
 <td><a href="https://erratic.cc/@OneWheelGeek">OneWheelGeek@erratic.cc</a></td>
 </tr>
 
+<!--
 <tr>
 <th>Twitter:</th>
 <td><a href="https://twitter.com/OneWheelGeek">@OneWheelGeek</a></td>
 </tr>
+-->
 
 <!--
 <tr>
@@ -63,10 +65,12 @@ My name is Jeff Clement.
 </tr>
 -->
 
+<!--
 <tr>
 <th>Keybase:</th>
 <td><a href="https://keybase.io/jsc">jsc</a></td>
 </tr>
+-->
 
 <tr>
 <th>Keyoxide:</th>

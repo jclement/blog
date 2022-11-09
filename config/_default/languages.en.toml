@@ -35,7 +35,7 @@ dateFormat = "2 January 2006"
   #   { google = "https://www.google.com/" },
   #   { hashnode = "https://username.hashnode.dev" },
   #   { instagram = "https://instagram.com/username" },
-     { keybase = "https://keybase.io/jsc" },
+  #   { keybase = "https://keybase.io/jsc" },
   #   { kickstarter = "https://www.kickstarter.com/profile/username" },
   #   { lastfm = "https://lastfm.com/user/username" },
      { linkedin = "https://www.linkedin.com/profile/view?id=6394933" },
@@ -56,7 +56,7 @@ dateFormat = "2 January 2006"
   #   { tiktok = "https://tiktok.com/@username" },
   #   { tumblr = "https://username.tumblr.com" },
   #   { twitch = "https://twitch.tv/username" },
-     { twitter = "https://twitter.com/OneWheelGeek" },
+  #   { twitter = "https://twitter.com/OneWheelGeek" },
   #   { whatsapp = "https://wa.me/phone-number" },
   #   { youtube = "https://youtube.com/username" },
    ]
