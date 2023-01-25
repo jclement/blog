@@ -3,6 +3,7 @@ title: About me
 comments: false
 showReadingTime: false
 showDate: false
+showComments: false
 showPagination: false
 ---
 
