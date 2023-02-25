@@ -198,17 +198,13 @@ class Neko {
     update() {
         const state = stateMachine[this.state];
         if (state.awake) {
-            let dx = this.targetX - this.x;
-            let dy = this.targetY - this.y;
+            
+            const distanceX = this.targetX - this.x;
+            const distanceY = this.targetY - this.y;
 
-            // if we're close enough to the target, stop moving
-            if (Math.abs(dx) < this.speedX) dx = 0;
-            if (Math.abs(dy) < this.speedY) dy = 0;
-
-            if (dx < 0) dx = -1;
-            if (dx > 0) dx = 1;
-            if (dy < 0) dy = -1;
-            if (dy > 0) dy = 1;
+            // If we're close enough to the target, stop moving
+            const dx = Math.abs(distanceX) < this.speedX ? 0 : Math.sign(distanceX);
+            const dy = Math.abs(distanceY) < this.speedY ? 0 : Math.sign(distanceY);
 
             // determine our new state
             var newState = 'normal';
