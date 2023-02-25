@@ -24,6 +24,7 @@ mainSections = ["post"]
 
 [article]
   showDate = true
+  showComments = true
   showDateUpdated = false
   showAuthor = false
   showBreadcrumbs = false

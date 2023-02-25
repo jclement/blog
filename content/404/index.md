@@ -4,6 +4,7 @@ comments: false
 showReadingTime: false
 showDate: false
 showPagination: false
+showComments: false
 ---
 
 {{<lead>}}
