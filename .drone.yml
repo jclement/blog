@@ -7,6 +7,10 @@ trigger:
     - master
 
 steps:
+- name: submodules
+  image: alpine/git
+  commands:
+  - git submodule update --init --recursive
 
 - name: Build 
   image: golang:alpine
