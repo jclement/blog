@@ -118,7 +118,7 @@ class Neko {
     targetX = -1;
     targetY = -1;
 
-    constructor(x = document.body.clientWidth - nekoSize,y = document.body.clientHeight - nekoSize) {
+    constructor(x = window.innerWidth - nekoSize,y = window.innerHeight - nekoSize) {
         this.x = x;
         this.y = y;
 
@@ -133,8 +133,8 @@ class Neko {
 
         // hook into event handlers
         window.addEventListener('resize', this.handleResize.bind(this));
-        window.addEventListener('mousemove', this.handleMoveOrTouch.bind(this));
-        window.addEventListener('touch', this.handleMoveOrTouch.bind(this));
+        window.addEventListener('mousemove', this.handleMouseMove.bind(this));
+        window.addEventListener('touchstart', this.handleTouch.bind(this));
 
         // start the neko in the sleep state
         this.setState('sleep');
@@ -165,7 +165,12 @@ class Neko {
         this.animationIndex = (this.animationIndex + 1) % stateMachine[this.state].images.length;
     }
 
-    handleMoveOrTouch(event) {
+    handleTouch(event) {
+        this.targetX = event.touches[0].clientX - nekoSize/2;
+        this.targetY = event.touches[0].clientY - nekoSize/2;
+    }
+
+    handleMouseMove(event) {
         this.targetX = event.clientX - nekoSize/2;
         this.targetY = event.clientY - nekoSize/2;
     }
