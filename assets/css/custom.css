@@ -5,3 +5,9 @@
 #TableOfContents {
     min-width: 300px;
 }
+
+img#neko {
+    /* Both are needed to support all browsers currently. */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
