@@ -1,0 +1,3 @@
+[submodule "static/neko"]
+	path = static/neko
+	url = ssh://git@git.erratic.cloud:222/jclement/neko.git
