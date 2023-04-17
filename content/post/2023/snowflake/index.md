@@ -21,6 +21,24 @@ My starting thought was to hook into our events mechanism and push the document 
 2. Our "Documents" serialize well to JSON.
 3. Our software provides a great deal of configurability where customers can add user-defined fields at will. At the database schema level, we do this by actually altering tables and adding columns on demand. Doing any sort of table-based syncing approach seemed like we'd likely run into hiccups because of this ever evolving schema.  
 
+{{< mermaid >}}
+graph TB
+ subgraph Our Snowflake
+  Documents
+  View1
+  View2
+end
+ subgraph Customer Snowflake
+  CView1[View1]
+  CView2[View2]
+end
+ App--Publish JSON-->Documents[Document Table]
+ View1--Read-->Documents
+ View2--Read-->Documents
+View1--Share-->CView1
+View2--Share-->CView2
+{{< /mermaid >}}
+
 ## Initial Setup
 
 Initially, I signed up for a trial account with Snowflake and created a new database called "TEST".
@@ -35,7 +53,7 @@ create or replace TABLE DOCUMENTS (
 	TYPE VARCHAR(50) NOT NULL,
 	ID VARCHAR(50) NOT NULL,
 	VERSION NUMBER(38,0) NOT NULL,
-	DATA OBJECT NOT NULL,
+	DATA VARIANT NOT NULL,
 	constraint DOCUMENTS_PL primary key (TYPE, ID, VERSION)
 );
 ```
@@ -43,7 +61,7 @@ create or replace TABLE DOCUMENTS (
 * **TYPE** is the type of the document being stored. We have many different document types (USERS, PARTNERS, ACCOUNTS, ...)
 * **ID** is the ID of the document being stored
 * **VERSION** is the version of the document being stored. We have strong versioning in our application so every update is a new version, and any historic version is immutable.  Rather than only store the latest version in Snowflake, I figured we may as well store every version we encounter along the way and open up some cool reporting opportunities.
-* **DATA** is the serialized JSON payload of the document itself.
+* **DATA** is the serialized JSON payload of the document itself.  (I'm told that querying JOSN in VARIANT columns performs fairly close to individual columns).
 
 I wrote a quick serializer to convert our Document into some nice looking JSON.  Here is a somewhat simple example, with some custom fields and even a custom "CONTRACTS" table.
 
@@ -335,6 +353,8 @@ from
     documents_latest, lateral flatten (input => data:CUSTOM:CONTRACTS)
 where type='PARTNER';
 ```
+
+I ended up writing some code that automatically creates/recreates views on Snowflake to roughly replicate the underlying tables using the above JSON querying capabilities, which means existing queries run with little/no changes.
 
 The end result of all of this is that with very little effort, I now have an adapter that publishes all of my document records into Snowflake (in JSON form), and I can build views that flatten that into easily consumable slices which we can then share with customers using Snowflake's fancy Private Sharing feature.
 
