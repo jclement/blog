@@ -309,6 +309,10 @@ The entire sync job for all 10k records takes about 10 seconds (instead of 80 mi
 
 Because I'm batching up update calls as documents change on our side, this solution scales MUCH better for high activity levels.  If I queue up events for a couple hours, for example, there is near-zero overhead while the system is running and every two hours it's batching up everything that happened in the last two hours (even under very high load, MUCH less than 10k documents) and syncing those across in bulk (taking much less than 10 seconds for everything).  
 
+{{<note>}}
+As a point of comparison, I implemented this same approach with SQL Server / Azure SQL.  Loading data the fastest way I know how (using the SQL Bulk Copier) takes around 300 seconds, instead of 3ish, and querying the JSON data is MUCH slower.
+{{</note>}}
+
 Not only does this scale better, but this approach uses substantially less compute time per update than what I was doing before (saving a pile of money on the Snowflake side), but the batching allows me to ensure that my Snowflake warehouse is able to spin down (saving more money).  
 
 ## Querying the Data
@@ -359,3 +363,7 @@ I ended up writing some code that automatically creates/recreates views on Snowf
 The end result of all of this is that with very little effort, I now have an adapter that publishes all of my document records into Snowflake (in JSON form), and I can build views that flatten that into easily consumable slices which we can then share with customers using Snowflake's fancy Private Sharing feature.
 
 ![](share.png)
+
+{{<note>}}
+One gotcha.  It turns out the <a href="https://docs.snowflake.com/en/sql-reference/data-types-semistructured">maximum size for a variant field is 16MB</a>, which we bumped into with some particularly ridiculous test data.  
+{{</note>}}
