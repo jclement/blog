@@ -13,9 +13,11 @@ steps:
   - git submodule update --init --recursive
 
 - name: Build 
-  image: golang:alpine
+  #image: golang:alpine
+  image: alpine:latest
   commands:
-  - apk add hugo git minify
+  - apk add --no-cache hugo git minify go make musl-dev
+  #- apk add hugo git minify
   - hugo 
   - minify -r -o public/ public/
 
