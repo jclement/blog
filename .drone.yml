@@ -16,7 +16,7 @@ steps:
   #image: golang:alpine
   image: alpine:latest
   commands:
-  - apk add --no-cache hugo git minify go make musl-dev
+  - apk add --no-cache hugo=0.119.0-r1 git minify go make musl-dev
   #- apk add hugo git minify
   - hugo 
   - minify -r -o public/ public/
