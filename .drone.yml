@@ -16,7 +16,7 @@ steps:
   image: hugomods/hugo:0.119.0
   commands:
   - apk add git minify go
-  - hugo 
+  - hugo -v
   - minify -r -o public/ public/
 
 - name: Upload 
