@@ -49,7 +49,7 @@ My name is Jeff Clement.
 
 <tr>
 <th>Mastodon:</th>
-<td><a href="https://erratic.cc/@OneWheelGeek">OneWheelGeek@erratic.cc</a></td>
+<td><a href="https://social.lol/@OneWheelGeek">OneWheelGeek@social.lol</a></td>
 </tr>
 
 <tr>

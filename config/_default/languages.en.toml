@@ -40,7 +40,7 @@ dateFormat = "2 January 2006"
   #   { kickstarter = "https://www.kickstarter.com/profile/username" },
   #   { lastfm = "https://lastfm.com/user/username" },
      { linkedin = "https://www.linkedin.com/profile/view?id=6394933" },
-     { mastodon = "https://erratic.cc/@OneWheelGeek" },
+     { mastodon = "https://social.lol/@OneWheelGeek" },
   #   { medium = "https://medium.com/username" },
   #   { microsoft = "https://www.microsoft.com/" },
   #   { orcid = "https://orcid.org/userid" },
