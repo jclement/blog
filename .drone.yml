@@ -6,6 +6,8 @@ trigger:
   branch:
     - master
 
+steps:
+
 - name: Build 
   image: hugomods/hugo:0.119.0
   commands:
