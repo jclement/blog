@@ -4,6 +4,7 @@
 
 baseURL = "https://www.erraticbits.ca/"
 defaultContentLanguage = "en"
+timeout = "10m"
 
 enableRobotsTXT = true
 paginate = 10
