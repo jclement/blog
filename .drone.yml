@@ -9,10 +9,16 @@ trigger:
 steps:
 
 - name: Build 
-  image: hugomods/hugo:0.119.0
+  image: plugins/hugo
+  settings:
+    hugo_version: 0.119.0
   commands:
-  - apk add git minify go
-  - hugo -v
+  - apk add go 
+
+- name: Minify
+  image: alpine
+  commands:
+  - apk add minify 
   - minify -r -o public/ public/
 
 - name: Upload 
