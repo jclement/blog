@@ -6,12 +6,6 @@ trigger:
   branch:
     - master
 
-steps:
-- name: submodules
-  image: alpine/git
-  commands:
-  - git submodule update --init --recursive
-
 - name: Build 
   image: hugomods/hugo:0.119.0
   commands:
