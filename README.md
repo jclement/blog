@@ -1,2 +1,4 @@
 # ErraticBits.ca Blog/Website
 
+...
+
