@@ -1,3 +1,4 @@
+name: Deploy to ErraticBlog on Epsilon
 'on':
   push:
     branches:
@@ -23,7 +24,7 @@ jobs:
         run: hugo
       - name: Create SSH key
         run: |
-          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          install -m 600 -D /dev/null ~/.ssh/id_ed25519
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: Deploy with rsync
