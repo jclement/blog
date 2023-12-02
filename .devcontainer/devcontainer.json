@@ -12,6 +12,8 @@
         "vscode": {
             "extensions": [
 				"github.codespaces",
+				"tamasfe.even-better-toml",
+				"budparr.language-hugo-vscode",
 			]
         },
 	},
