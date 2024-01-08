@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ "$CODESPACES" = "true" ]; then
+    # if running in CodeSpaces, we need to give a hint that we're actually
+    # sitting behind HTTPS so that LiveReload works properly.
+    hugo server -D --liveReloadPort 443
+else
+    hugo server -D
+fi
