@@ -629,6 +629,12 @@ And, finally, we need to update `prepare_query\3` to ignore queries against that
 
 With these changes, Oban works just fine without Oban's internal queries running afoul of our multi tenant safety checks.  Thankfully, operations issued by Oban are still subject to our safety checks.
 
+## Testing?
+
+{{<note>}}
+One thing absent from this post (because I'm still figuring it out) is how to support this with tests.  I'll add that when I get it sorted.
+{{</note>}}
+
 ## Completed Project
 
 Hopefully this helps lay out an approach to multi tenancy in Phoenix.  I'm still fairly new to Elixir/Phoenix so if something I've said in here is blatantly wrong, please leave a comment or email and I'll update!
