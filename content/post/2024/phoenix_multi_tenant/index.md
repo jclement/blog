@@ -629,13 +629,122 @@ And, finally, we need to update `prepare_query\3` to ignore queries against that
 
 With these changes, Oban works just fine without Oban's internal queries running afoul of our multi tenant safety checks.  Thankfully, operations issued by Oban are still subject to our safety checks.
 
-## Testing?
+## Testing
+
+### The Database Side
+
+Testing of the database side is fairly easy.
+
+I've created a separate fixture that sets up two tenants.
+
+{{<highlight elixir "hl_lines=">}}
+defmodule MultiTenant.TenantsFixtures do
+  def tenant1_fixture() do
+    MultiTenant.Repo.insert!(%MultiTenant.Tenants.Tenant{
+      name: "tenant1",
+      hosts: ["host1a", "host1b"]
+    })
+  end
+
+  def tenant2_fixture() do
+    MultiTenant.Repo.insert!(%MultiTenant.Tenants.Tenant{
+      name: "tenant2",
+      hosts: ["host2"]
+    })
+  end
+
+  def tenants_fixture do
+    {tenant1_fixture(), tenant2_fixture()}
+  end
+end
+{{</highlight>}}
+
+My tests can then be extended to wire up the tenants and, critically, call `put_tenant_id` on the Repo to choose the current active tenant for the test.  This makes it fairly easy to switch back and forth between tenants and verify data isn't leaking.  For example, my two list calls are tested like so:
+
+{{<highlight elixir "hl_lines=2-3 8">}}
+    test "list/0 returns all todos for tenant" do
+      {t1, t2} = tenants_fixture()
+      Repo.put_tenant_id(t1.id)
+      todo = todo_fixture()
+
+      assert Todos.list() == [todo]
+
+      Repo.put_tenant_id(t2.id)
+      assert Todos.list() == []
+    end
+
+    test "list_all/0 returns all todos" do
+      {t1, t2} = tenants_fixture()
+      Repo.put_tenant_id(t1.id)
+
+      todo = todo_fixture()
+
+      Repo.put_tenant_id(t1.id)
+      assert Todos.list_all() == [todo]
+
+      Repo.put_tenant_id(t2.id)
+      assert Todos.list_all() == [todo]
+    end
+{{</highlight>}}
+
+### The Web Side
+
+For the web side, I'm less interested in testing the multi tenancy side and the more focused on the functionality so I can update `ConnCase` to automatically default to *tenant1* by updating the `host` in the each connection.
+
+{{<highlight elixir "hl_lines=4-8">}}
+  setup tags do
+    MultiTenant.DataCase.setup_sandbox(tags)
+
+    conn = Phoenix.ConnTest.build_conn()
+
+    # always bootstrap with a host header for tenant 1
+    {t1, _t2} = MultiTenant.TenantsFixtures.tenants_fixture()
+    conn = %Plug.Conn{conn | host: hd(t1.hosts)}
+    # initialize Repo with tenant 1 so that, by default, setup
+    # steps have an assigned tenant.
+    MultiTenant.Repo.put_tenant_id(t1.id)
+
+    {:ok, conn: conn}
+  end
+{{</highlight>}}
+
+This keeps the code in my tests fairly normal, such as this test verifying the the tenant name is visible in my homepage.  Notice, the my plug has taken the host header, looked up the tenant, and stuffed in onto the connection's assigns.
+
+{{<highlight elixir "hl_lines=">}}
+  test "GET /", %{conn: conn} do
+    conn = get(conn, ~p"/")
+    assert html_response(conn, 200) =~ "<b>#{conn.assigns.tenant.name}</b>"
+  end
+{{</highlight>}}
+
+If I specifically want to override the tenant, I can tamper with the `host` value of the connection, such as this example to test that a missing or invalid host gives the appropriate error.
+
+{{<highlight elixir "hl_lines=2 8">}}
+  test "GET / without Tenant", %{conn: conn} do
+    conn = %Plug.Conn{conn | host: nil}
+    conn = get(conn, ~p"/")
+    assert html_response(conn, 404) =~ "Host not found"
+  end
+
+  test "GET / bogus Tenant", %{conn: conn} do
+    conn = %Plug.Conn{conn | host: "badexample.com"}
+    conn = get(conn, ~p"/")
+    assert html_response(conn, 404) =~ "Host not found"
+  end
+{{</highlight>}}
+
+The above changes work for LiveView testing too.
 
 {{<note>}}
-One thing absent from this post (because I'm still figuring it out) is how to support this with tests.  I'll add that when I get it sorted.
+As alluded to above, my approach with the handler/on-mount code being responsible for setting the tenant ID in the process dictionary, and my reliance on that in my controllers, means that I need to manually call `MultiTenant.Repo.put_tenant_id/1` as part of my test setup before I can do any database operations in my test setup steps. 🤷
 {{</note>}}
 
+
 ## Completed Project
+
+Now, by pointing a bunch of names at my service (or a wild-card domain) I can setup multiple tenants under a single instance of my application and keep the data separated.
+
+![Fly](fly.png)
 
 Hopefully this helps lay out an approach to multi tenancy in Phoenix.  I'm still fairly new to Elixir/Phoenix so if something I've said in here is blatantly wrong, please leave a comment or email and I'll update!
 
