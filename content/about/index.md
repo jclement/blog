@@ -7,7 +7,7 @@ showComments: false
 showPagination: false
 ---
 
-![Me](img/author.png)
+![Me](/img/author.png)
 
 My name is Jeff Clement.  
 
