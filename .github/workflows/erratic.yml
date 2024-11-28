@@ -19,7 +19,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2.6.0
         with:
             hugo-version: latest # optional, default is latest
-            extended: false # optional, default is false
+            extended: true # optional, default is false
       - name: Build
         run: hugo
       - name: Create SSH key
