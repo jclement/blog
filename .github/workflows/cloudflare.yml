@@ -1,0 +1,33 @@
+name: Deploy to ErraticBlog on Epsilon
+'on':
+  push:
+    branches:
+      - main
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "deploy"
+  cancel-in-progress: false
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Hugo setup
+        uses: peaceiris/actions-hugo@v2.6.0
+        with:
+            hugo-version: latest # optional, default is latest
+            extended: false # optional, default is false
+      - name: Build
+        run: hugo
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 0d06311837c5ebec5d9c11cd9f41ff0c
+          projectName: erraticblog
+          directory: public/
+          branch: main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
